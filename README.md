@@ -38,7 +38,7 @@ Story (Detailed)
 
 Gameplay (Detailed)
 
-	Project Shadow is a strategic game with horror survival elements. The player has to survive stages inside a dungeon, while escaping the monster who is trying to devour the player. In the beginning the player is dropped into a dungeon with only a light source. Within each stage, the player must gather resources and maintain the amount of fuel source. This is all while running and hiding from the monster. As the player progresses through rounds and racks up a higher score, the enemy monster’s speed with increase, increasing the stage difficulty. There is no end to the rounds, they simply get more difficult until the player fails. 
+  Project Shadow is a strategic game with horror survival elements. The player has to survive stages inside a dungeon, while escaping the monster who is trying to devour the player. In the beginning the player is dropped into a dungeon with only a light source. Within each stage, the player must gather resources and maintain the amount of fuel source. This is all while running and hiding from the monster. As the player progresses through rounds and racks up a higher score, the enemy monster’s speed with increase, increasing the stage difficulty. There is no end to the rounds, they simply get more difficult until the player fails.
   In order to escape the enemy monster, the player will have to run or hide from the chasing monster. The player will have to use these skills to overcome obstacles in the way. The player then has to complete puzzles that come their way, which incorporates strategic thinking. After the puzzles are solved, keys are dropped, which allows the player to progress to the next stage. 
   The player must also maintain their existing light source from the lamp/torch. This is more or less the player’s life source because without being able to see, the enemy monster ends up killing the player. The player is allowed to gather fuel in order to increase the amount of light source, however, there is a limited amount of fuel within each level. 
 After the completion of each stage, the difficulty starts to increase and makes it harder to escape the enemy monster. The puzzles will increase in difficulty. In addition, the further the player progresses in the game, the speed of the monster increases and gives the player a limited amount of time before the game is over.  
@@ -135,10 +135,10 @@ Assets Needed
 	- Horror/intense track for each stage
 	- Hiding and running sound effects
 	- Turning light source off and on
-- Individual character and enemy sound effects to distinguish between    
-  characters
-- Menu screen sound effects
-- ”Game Over” music
+	- Individual character and enemy sound effects to distinguish between    
+  		characters
+	- Menu screen sound effects
+	- ”Game Over” music
 -User Interface
 	- Font for dialogue implementation - Text RPG
 	- Art for menus - Pause screen and main menu
@@ -148,31 +148,31 @@ Assets Needed
 Plan for Implementation/Schedule
 	- Sprint 1
 			- Learning Unity 
-- Basic UI 
-				- Basic Stage
-					-Background
-					-Possible positions for player
+			- Basic UI 
+			- Basic Stage
+			- Background
+			- Possible positions for player
 			- Player and enemy creation
 			- Basic mechanics
-				- Movement of player
-				- Movement of enemy
+			- Movement of player
+			- Movement of enemy
 			- Player, enemy sketches & concepts
 	- Sprint 2
 			- Finalize player/enemy creation
 			- Decide on desired speed of both player and enemy
 			- Make it so player may switch lightsource on and off
 			- Start to implement stage
-				- Stage art
-- Start implementing puzzle mechanics
-				- Incorporate decreasing light source
+			- Stage art
+			- Start implementing puzzle mechanics
+			- Incorporate decreasing light source
 	- Sprint 3
 			- Finish stage elements
-				- Include being able to collect fuel and keys
-				- Develop scene of losing the game
+			- Include being able to collect fuel and keys
+			- Develop scene of losing the game
 			- Combine existing elements into one
 			- Implement completed story script
-- Finalize all previous aspects
-- Finish anything not done in previous sprint
-- Fix any existing bugs
+			- Finalize all previous aspects
+			- Finish anything not done in previous sprint
+			- Fix any existing bugs
 			- Implement finishing art & sound resources 
-- Implement more stages (stretch)
+			- Implement more stages (stretch)
