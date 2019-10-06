@@ -21,10 +21,10 @@
 * Horror survival
 
 ##### Core Gameplay Mechanics (Brief)
-Solve puzzles and obtain keys to progress through the stage(s)
-One single enemy chases the player character throughout the map(s) at random point of the stage
-Enemy noise signifies the distance from player character
-Player character is able to run or sneak to evade the enemy
-Player character is able to turn on and off light source
-To sustain the use of light, fuel needs to be collected
-Different dungeon layouts depending on how far the player character progress through the game
+* Solve puzzles and obtain keys to progress through the stage(s)
+* One single enemy chases the player character throughout the map(s) at random point of the stage
+* Enemy noise signifies the distance from player character
+* Player character is able to run or sneak to evade the enemy
+* Player character is able to turn on and off light source
+* To sustain the use of light, fuel needs to be collected
+* Different dungeon layouts depending on how far the player character progress through the game
