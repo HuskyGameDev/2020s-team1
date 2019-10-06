@@ -15,7 +15,7 @@
 
 ### Table of Content
 #### Overview
-Theme/ Setting/ Genre:
+##### Theme/ Setting/ Genre:
 1850 - 1900s
-        Dungoen Setting
-        Horror survival
+Dungoen Setting
+Horror survival
