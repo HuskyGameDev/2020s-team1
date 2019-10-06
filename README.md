@@ -12,3 +12,10 @@
                 Player Character Decelopment
  * Rachel Xiao - Artist
                 Player, enemy, stage Design and sprite art
+
+### Table of Content
+#### Overview
+Theme/ Setting/ Genre:
+1850 - 1900s
+        Dungoen Setting
+        Horror survival
