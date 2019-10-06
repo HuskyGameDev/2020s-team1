@@ -32,6 +32,6 @@ Windows PC
 * To sustain the use of light, fuel needs to be collected
 * Different dungeon layouts depending on how far the player character progress through the game
 
-##### Project Description
+#### Project Description
 Project Shadow is a 2D top down game mixed with horror survival elements. The player will be thrown into a dark dungeon, in which they must run, hide, solve puzzles, and use their light source efficiently to help escape the enemy monster chasing after them.
 The player can play as one character. They will then be placed in the same dungeon stage with increasing difficulty as they progress through the game. Each arena will consist of several puzzles, each of which consists of a certain number of keys needed to be collected. The lightsource the player possesses will slowly run out, thus, the player needs to collect fuel around the stages. Once the fuel runs out or the enemy monster catches up, it’s game over.
