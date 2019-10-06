@@ -147,16 +147,20 @@ Assets Needed
 
 Plan for Implementation/Schedule
 	- Sprint 1
-			- Learning Unity 
-			- Basic UI 
-			- Basic Stage
-			- Background
-			- Possible positions for player
-			- Player and enemy creation
-			- Basic mechanics
-			- Movement of player
-			- Movement of enemy
-			- Player, enemy sketches & concepts
+			-[x] Learning Unity 
+			-[] Basic UI
+			-[] Basic Stage
+			-[] Background
+			-[] Possible positions for player
+			-[] Player and enemy creation
+				-[] Player creation
+				-[] Enemy creation
+			-[] Basic mechanics
+			-[] Movement of player
+				-[x] Basic movement
+				-[]Interaction and lamp on/off
+			-[x] Movement of enemy
+			-[] Player, enemy sketches & concepts
 	- Sprint 2
 			- Finalize player/enemy creation
 			- Decide on desired speed of both player and enemy
