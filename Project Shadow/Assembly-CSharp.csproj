@@ -62,7 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\CharacterMovement.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/2019f-team1/Project Shadow/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
