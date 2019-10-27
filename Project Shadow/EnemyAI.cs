@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -50,8 +50,10 @@ using UnityEngine;
          }
  }
  
- public class BasicEnemy : MonoBehaviour
- {
+
+public class EnemyAI : MonoBehaviour
+{
+     {
          public Transform target;
          public float speed = 3f;
          public float attack1Range = 1f;
@@ -86,6 +88,6 @@ using UnityEngine;
  
          public void Rest ()
          {
- 
+			;
          }
- }
+}
