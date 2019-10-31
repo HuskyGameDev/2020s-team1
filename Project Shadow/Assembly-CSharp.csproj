@@ -63,6 +63,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CharacterMovement.cs" />
+    <Compile Include="Assets\Scripts\FuelType1.cs" />
+    <Compile Include="Assets\Scripts\Key.cs" />
+    <Compile Include="Assets\Scripts\LightSourceControl.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/2019f-team1/Project Shadow/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
