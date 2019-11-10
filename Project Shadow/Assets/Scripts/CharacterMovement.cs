@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class CharacterMovement : MonoBehaviour
 {
     public float moveSpeed = 5;
+    public float runSpeed = 7;
+    private bool isRunning = false;
     public Rigidbody2D rb;
     Vector2 movement;
     public Transform characterTrnsform;
@@ -23,6 +25,18 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+        {
+            if (isRunning)
+            {
+                isRunning = false;
+            }
+            else
+            {
+                isRunning = true;
+            }
+        }
+
         float hInput = Input.GetAxisRaw("Horizontal");
         movement.x = hInput;
         if(hInput < 0)
@@ -51,7 +65,15 @@ public class CharacterMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        if (isRunning)
+        {
+            rb.MovePosition(rb.position + movement * runSpeed * Time.fixedDeltaTime);
+        }
+        else
+        {
+            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
