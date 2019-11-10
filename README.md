@@ -2,7 +2,7 @@
 ## 2019f-Team 1
 
 ## Members:
- * Zong Deng - Team Lead/Programmer
+ * Zong Deng - Team Lead/Programmer 
                 UI and Menu
  * Christian Clemmons - Programmer
                 Enemy Development
