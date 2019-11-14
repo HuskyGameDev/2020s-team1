@@ -53,7 +53,7 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-     {
+
          public Transform target;
          public float speed = 3f;
          public float attack1Range = 1f;
