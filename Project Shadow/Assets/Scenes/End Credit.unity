@@ -255,7 +255,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: 357.9, y: 50}
+  m_SizeDelta: {x: 541.2, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1121262919
 MonoBehaviour:
@@ -349,7 +349,7 @@ MonoBehaviour:
     spaceCount: 1
     wordCount: 2
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
