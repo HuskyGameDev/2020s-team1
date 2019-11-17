@@ -41,6 +41,7 @@ public class CharacterMovement : MonoBehaviour
         movement.x = hInput;
         if(hInput < 0)
         {
+            Debug.Log("hInput < 0");
             characterTrnsform.eulerAngles = new Vector3(0, 0, -90);
         }
         else if(hInput > 0)
@@ -54,6 +55,7 @@ public class CharacterMovement : MonoBehaviour
 
         if (vInput < 0)
         {
+            Debug.Log("vInput < 0");
             characterTrnsform.eulerAngles = new Vector3(0, 0, 0);
         }
         else if (vInput > 0)
