@@ -39,11 +39,11 @@ public class CharacterMovement : MonoBehaviour
 
         float hInput = Input.GetAxisRaw("Horizontal");
         movement.x = hInput;
-        if(hInput > 0)
+        if(hInput < 0)
         {
             characterTrnsform.eulerAngles = new Vector3(0, 0, -90);
         }
-        else if(hInput < 0)
+        else if(hInput > 0)
         {
             characterTrnsform.eulerAngles = new Vector3(0, 0, 90);
         }
@@ -52,11 +52,11 @@ public class CharacterMovement : MonoBehaviour
         float vInput = Input.GetAxisRaw("Vertical");
         movement.y = vInput;
 
-        if (vInput > 0)
+        if (vInput < 0)
         {
             characterTrnsform.eulerAngles = new Vector3(0, 0, 0);
         }
-        else if (vInput < 0)
+        else if (vInput > 0)
         {
             characterTrnsform.eulerAngles = new Vector3(0, 0, 180);
         }
