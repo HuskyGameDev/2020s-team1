@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class CharacterMovement : MonoBehaviour
     //public float fuelType1Amount;
     public LightSourceControl lightSourceControl;
     public Text txtKey;
+    public AudioManager audioManager;
+    private float timeSinceLastPlay = 0.3f;
+    private bool isMoving = false;
 
     //Start is called before the first frame update
     void Start()
@@ -25,6 +29,8 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isMoving = false;
+        timeSinceLastPlay += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
             if (isRunning)
@@ -37,28 +43,58 @@ public class CharacterMovement : MonoBehaviour
             }
         }
 
-        float hInput = Input.GetAxisRaw("Horizontal");
+
+        float hInput = 0;
+        hInput = Input.GetAxisRaw("Horizontal");
         movement.x = hInput;
-        if(hInput < 0)
-        {
-            characterTrnsform.eulerAngles = new Vector3(0, 0, -90);
-        }
-        else if(hInput > 0)
-        {
-            characterTrnsform.eulerAngles = new Vector3(0, 0, 90);
-        }
-
-
-        float vInput = Input.GetAxisRaw("Vertical");
+        float vInput = 0;
+        vInput = Input.GetAxisRaw("Vertical");
         movement.y = vInput;
 
-        if (vInput < 0)
+        if(hInput > 0)
         {
-            characterTrnsform.eulerAngles = new Vector3(0, 0, 0);
+            if(vInput > 0)
+            {
+                
+                characterTrnsform.eulerAngles = new Vector3(0, 0, 135);
+            }
+            else if(vInput < 0)
+            {
+                
+                characterTrnsform.eulerAngles = new Vector3(0, 0, 45);
+            }
+            else
+            {
+                characterTrnsform.eulerAngles = new Vector3(0, 0, 90);
+            }
+
+            
         }
-        else if (vInput > 0)
+        else if(hInput < 0)
         {
-            characterTrnsform.eulerAngles = new Vector3(0, 0, 180);
+            if (vInput > 0)
+            {
+                characterTrnsform.eulerAngles = new Vector3(0, 0, -135);
+            }
+            else if (vInput < 0)
+            {
+                characterTrnsform.eulerAngles = new Vector3(0, 0, -45);
+            }
+            else
+            {
+                characterTrnsform.eulerAngles = new Vector3(0, 0, -90);
+            }
+        }
+        else
+        {
+            if (vInput < 0)
+            {
+                characterTrnsform.eulerAngles = new Vector3(0, 0, 0);
+            }
+            else if (vInput > 0)
+            {
+                characterTrnsform.eulerAngles = new Vector3(0, 0, 180);
+            }
         }
 
     }
@@ -68,10 +104,22 @@ public class CharacterMovement : MonoBehaviour
         if (isRunning)
         {
             rb.MovePosition(rb.position + movement * runSpeed * Time.fixedDeltaTime);
+            if(timeSinceLastPlay > 0.3f && (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0))
+            {
+                    audioManager.Play("RunStep");
+                    timeSinceLastPlay = 0.1f;
+            }
+            
         }
         else
         {
             rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+            if(timeSinceLastPlay > 0.3f && (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0))
+            {
+                audioManager.Play("WalkStep");
+                timeSinceLastPlay = 0f;
+            }
+            
         }
         
     }
@@ -82,14 +130,25 @@ public class CharacterMovement : MonoBehaviour
         if (fuelType1 != null)
         {
             lightSourceControl.fuelIncrease(fuelType1.fuelAmount);
+            audioManager.Play("Oil");
             fuelType1.destroy();
+            return;
         }
 
         Key k = collision.GetComponent<Key>();
         if (k != null)
         {
             txtKey.text = Convert.ToString(Convert.ToInt32(txtKey.text) + 1);
+            audioManager.Play("Key");
             k.destroy();
+            return;
         }
+
+        EnemyAI enemy = collision.GetComponent<EnemyAI>();
+        if(enemy != null)
+        {
+            SceneManager.LoadScene("Death");
+        }
+
     }
 }
