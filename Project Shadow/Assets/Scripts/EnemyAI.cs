@@ -30,12 +30,12 @@ public class EnemyAI : MonoBehaviour
          {
              //rotate to look at player
              transform.LookAt (target.position);
-             transform.Rotate (new Vector3 (0, -90, 0), Space.Self);
+             transform.Rotate (new Vector3 (0, -90,-90), Space.Self);
          
              //move towards player
              if (Vector3.Distance (transform.position, target.position) > attack1Range) 
              {
-                     transform.Translate (new Vector3 (speed * Time.deltaTime, 0, 0));
+                     transform.Translate (new Vector3 (0, speed * Time.deltaTime, 0));
              }
          }
  
