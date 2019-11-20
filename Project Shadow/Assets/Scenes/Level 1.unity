@@ -2193,7 +2193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1078978637}
-  speed: 50
+  speed: 180
   attack1Range: 1
   attack1Damage: 1
   timeBetweenAttacks: 2
