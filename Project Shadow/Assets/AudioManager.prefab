@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5155674182297915149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5155674182297915155}
+  - component: {fileID: 5155674182297915148}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5155674182297915155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5155674182297915149}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 457.0048, y: 438.6038, z: -122.287476}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5155674182297915148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5155674182297915149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd137409c61751c46b62086c0e34f911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Key
+    clip: {fileID: 8300000, guid: 1b36624a3ee113549b4ce1f7733e432e, type: 3}
+    loop: 0
+    volume: 1
+    pitch: 2
+    source: {fileID: 0}
+  - name: Oil
+    clip: {fileID: 8300000, guid: 7f259263f85868a4a9905c088d2340f0, type: 3}
+    loop: 0
+    volume: 1
+    pitch: 2
+    source: {fileID: 0}
+  - name: RunStep
+    clip: {fileID: 8300000, guid: 93161d48f0858284595651d488e6bc83, type: 3}
+    loop: 0
+    volume: 1
+    pitch: 2
+    source: {fileID: 0}
+  - name: WalkStep
+    clip: {fileID: 8300000, guid: 9826fac3753b5e24380828f36074c5f9, type: 3}
+    loop: 0
+    volume: 1
+    pitch: 2
+    source: {fileID: 0}
+  - name: Theme
+    clip: {fileID: 8300000, guid: 9335003d6acc5df42b129efb76d83857, type: 3}
+    loop: 1
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    loop: 0
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    loop: 0
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    loop: 0
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    loop: 0
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    loop: 0
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    loop: 0
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    loop: 0
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    loop: 0
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    loop: 0
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    loop: 0
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
