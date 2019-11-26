@@ -15,6 +15,15 @@ public class Sound
     [Range(.1f, 3f)]
     public float pitch;
 
+    public void setVolume(float volume)
+    {
+        this.volume = volume;
+    }
+
+    public void setPitch(float volume)
+    {
+        this.pitch = volume;
+    }
     [HideInInspector]
     public AudioSource source;
 
