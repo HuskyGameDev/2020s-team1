@@ -42,6 +42,7 @@ public class PauseMenu : MonoBehaviour
         gameIsPaused = false;
         Debug.Log("Loading Menu......");
         SceneManager.LoadScene("Menu");
+        AudioManager.instance.SwitchMusic("Theme1", "MenuBGM");
     }
 
     public void ToDesktop()
