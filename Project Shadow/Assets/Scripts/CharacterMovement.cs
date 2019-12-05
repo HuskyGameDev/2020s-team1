@@ -153,6 +153,7 @@ public class CharacterMovement : MonoBehaviour
         EnemyAI enemy = collision.GetComponent<EnemyAI>();
         if(enemy != null)
         {
+            AudioManager.instance.Play("GameOverMusic");
             SceneManager.LoadScene("Death");
             AudioManager.instance.SwitchMusic("Theme1", "MenuBGM");
         }
