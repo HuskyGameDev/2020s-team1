@@ -18,7 +18,6 @@ public class CharacterMovement : MonoBehaviour
     public Text txtKey;
     public AudioManager audioManager;
     private float timeSinceLastPlay = 0.3f;
-    private bool isMoving = false;
 
     //Start is called before the first frame update
     void Start()
@@ -29,7 +28,6 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isMoving = false;
         timeSinceLastPlay += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
@@ -109,6 +107,10 @@ public class CharacterMovement : MonoBehaviour
                 //audioManager.Play("RunStep");
                 AudioManager.instance.Play("RunStep");
                     timeSinceLastPlay = 0.1f;
+            }
+            else if(Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
+            {
+                isRunning = false;
             }
             
         }
