@@ -104,7 +104,8 @@ public class CharacterMovement : MonoBehaviour
             rb.MovePosition(rb.position + movement * runSpeed * Time.fixedDeltaTime);
             if(timeSinceLastPlay > 0.3f && (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0))
             {
-                    audioManager.Play("RunStep");
+                //audioManager.Play("RunStep");
+                AudioManager.instance.Play("RunStep");
                     timeSinceLastPlay = 0.1f;
             }
             else if(Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
@@ -118,7 +119,8 @@ public class CharacterMovement : MonoBehaviour
             rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
             if(timeSinceLastPlay > 0.3f && (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0))
             {
-                audioManager.Play("WalkStep");
+                //audioManager.Play("WalkStep");
+                AudioManager.instance.Play("WalkStep");
                 timeSinceLastPlay = 0f;
             }
             
@@ -132,7 +134,8 @@ public class CharacterMovement : MonoBehaviour
         if (fuelType1 != null)
         {
             lightSourceControl.fuelIncrease(fuelType1.fuelAmount);
-            audioManager.Play("Oil");
+            //audioManager.Play("Oil");
+            AudioManager.instance.Play("Oil");
             fuelType1.destroy();
             return;
         }
@@ -141,7 +144,8 @@ public class CharacterMovement : MonoBehaviour
         if (k != null)
         {
             txtKey.text = Convert.ToString(Convert.ToInt32(txtKey.text) + 1);
-            audioManager.Play("Key");
+            //audioManager.Play("Key");
+            AudioManager.instance.Play("Key");
             k.destroy();
             return;
         }
@@ -150,6 +154,7 @@ public class CharacterMovement : MonoBehaviour
         if(enemy != null)
         {
             SceneManager.LoadScene("Death");
+            AudioManager.instance.SwitchMusic("Theme1", "MenuBGM");
         }
 
     }

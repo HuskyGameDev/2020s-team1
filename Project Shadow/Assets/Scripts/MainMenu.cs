@@ -8,9 +8,19 @@ public class MainMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
 
+    private void Start()
+    {
+        if (AudioManager.instance.getCurrMusic() != "MenuBGM")
+        {
+            AudioManager.instance.Play("MenuBGM");
+        }
+        
+    }
     public void StartNew()
     {
         SceneManager.LoadScene(1);
+        AudioManager.instance.SwitchMusic("MenuBGM","Theme1");
+
     }
 
     public void ContinueGame()
@@ -23,14 +33,25 @@ public class MainMenu : MonoBehaviour
         else SceneManager.LoadScene(1);
     }
 
-    public void SetVolume(float volume)
+    public void SetMusicVolume(float volume)
     {
-        audioMixer.SetFloat("volume", volume);
+        audioMixer.SetFloat("musicVol", volume);
+        Debug.Log("Music: " + volume);
     }
 
+    public void SetSFXVolume(float volume)
+    {
+        audioMixer.SetFloat("sFXVol", volume);
+        Debug.Log("SFX: " + volume);
+    }
     public void FullScreen(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
+    }
+
+    public void ToCredit()
+    {
+        SceneManager.LoadScene("End Credit");
     }
     public void QuitGame()
     {
