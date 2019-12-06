@@ -15,6 +15,7 @@ public class DeathMenu : MonoBehaviour
     public void LoadMenu()
     {
         Debug.Log("Loading Main Menu......");
+        AudioManager.instance.StopPlaying("GameOverMusic");
         SceneManager.LoadScene("Menu");
     }
 
