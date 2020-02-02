@@ -130,6 +130,15 @@ public class CharacterMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        SpikeTrapAS sp = collision.GetComponent<SpikeTrapAS>();
+        if (sp != null)
+        {
+            AudioManager.instance.Play("GameOverMusic");
+            SceneManager.LoadScene("Death");
+            AudioManager.instance.SwitchMusic("Theme1", "MenuBGM");
+        }
+
+
         FuelType1 fuelType1 = collision.GetComponent<FuelType1>();
         if (fuelType1 != null)
         {
