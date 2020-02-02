@@ -136,6 +136,7 @@ public class CharacterMovement : MonoBehaviour
             AudioManager.instance.Play("GameOverMusic");
             SceneManager.LoadScene("Death");
             AudioManager.instance.SwitchMusic("Theme1", "MenuBGM");
+            return;
         }
 
 
