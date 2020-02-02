@@ -11,8 +11,11 @@ public class SpikeTrapButton : MonoBehaviour
     public GameObject SpikeTrap1A;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("been Toched");
-        SpikeTrapAS.Ativated();
+        CharacterMovement sp = collision.GetComponent<CharacterMovement>();
+        if (sp != null)
+        {
+            SpikeTrapAS.Ativated();
+        }
        // SpikeTrapAS var = new SpikeTrapAS();
        // var.Ativated();
 
