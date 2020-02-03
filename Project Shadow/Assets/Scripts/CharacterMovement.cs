@@ -19,15 +19,30 @@ public class CharacterMovement : MonoBehaviour
     public AudioManager audioManager;
     private float timeSinceLastPlay = 0.3f;
 
+    public static CharacterMovement instance;
+    public int currentHealth, maxHealth;
+    public float invincibleLength;
+    private float invincibleCounter;
+
+    private void Awake() 
+    {
+        instance = this;
+    }
+
     //Start is called before the first frame update
     void Start()
     {
-        
+        currentHealth = maxHealth;
+        invincibleCounter = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (invincibleCounter > 0) 
+        {
+            invincibleCounter -= Time.deltaTime;
+        }
         timeSinceLastPlay += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
@@ -133,9 +148,11 @@ public class CharacterMovement : MonoBehaviour
         SpikeTrapAS sp = collision.GetComponent<SpikeTrapAS>();
         if (sp != null)
         {
-            AudioManager.instance.Play("GameOverMusic");
+            Debug.Log("hit by spike trap");
+            instance.damagePlayer();
+/*            AudioManager.instance.Play("GameOverMusic");
             SceneManager.LoadScene("Death");
-            AudioManager.instance.SwitchMusic("Theme1", "MenuBGM");
+            AudioManager.instance.SwitchMusic("Theme1", "MenuBGM");*/
             return;
         }
 
@@ -167,6 +184,46 @@ public class CharacterMovement : MonoBehaviour
             SceneManager.LoadScene("Death");
             AudioManager.instance.SwitchMusic("Theme1", "MenuBGM");
         }
+/*        Health health = collision.GetComponent<Health>();
+        if (health != null) 
+        {
+            instance.HealPlayer();
+        }*/
+
 
     }
+
+    public void damagePlayer()
+    {
+        if (invincibleCounter <= 0)
+        {
+            currentHealth--;
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+                Debug.Log("player dead");
+                //AudioManager.instance.Play("GameOverMusic");
+                //SceneManager.LoadScene("Death");
+                //AudioManager.instance.SwitchMusic("Theme1", "MenuBGM");
+            }
+            
+        }
+        else 
+        {
+            Debug.Log(invincibleCounter);
+            invincibleCounter = invincibleLength;
+            Debug.Log(invincibleCounter);
+        }
+        HealthSystem.instance.HealthDisplay();
+    }
+    public void HealPlayer() 
+    {
+        currentHealth++;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        HealthSystem.instance.HealthDisplay();
+    }
+
 }
