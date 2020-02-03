@@ -145,10 +145,14 @@ public class CharacterMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Heart heart = collision.GetComponent<Heart>();
+        if (heart != null) 
+        {
+            instance.HealPlayer();
+        }
         SpikeTrapAS sp = collision.GetComponent<SpikeTrapAS>();
         if (sp != null)
         {
-            Debug.Log("hit by spike trap");
             instance.damagePlayer();
 /*            AudioManager.instance.Play("GameOverMusic");
             SceneManager.LoadScene("Death");
@@ -184,13 +188,6 @@ public class CharacterMovement : MonoBehaviour
             SceneManager.LoadScene("Death");
             AudioManager.instance.SwitchMusic("Theme1", "MenuBGM");
         }
-/*        Health health = collision.GetComponent<Health>();
-        if (health != null) 
-        {
-            instance.HealPlayer();
-        }*/
-
-
     }
 
     public void damagePlayer()
@@ -201,18 +198,14 @@ public class CharacterMovement : MonoBehaviour
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
-                Debug.Log("player dead");
-                //AudioManager.instance.Play("GameOverMusic");
-                //SceneManager.LoadScene("Death");
-                //AudioManager.instance.SwitchMusic("Theme1", "MenuBGM");
+                AudioManager.instance.Play("GameOverMusic");
+                SceneManager.LoadScene("Death");
+                AudioManager.instance.SwitchMusic("Theme1", "MenuBGM");
             }
-            
         }
         else 
         {
-            Debug.Log(invincibleCounter);
             invincibleCounter = invincibleLength;
-            Debug.Log(invincibleCounter);
         }
         HealthSystem.instance.HealthDisplay();
     }
