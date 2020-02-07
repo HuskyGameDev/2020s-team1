@@ -23,6 +23,8 @@ public class CharacterMovement : MonoBehaviour
     public int currentHealth, maxHealth;
     public float invincibleLength;
     private float invincibleCounter;
+    private float damageTime = 1.5f;
+    private float canDamage = -1f;
 
     private void Awake() 
     {
@@ -192,9 +194,10 @@ public class CharacterMovement : MonoBehaviour
 
     public void damagePlayer()
     {
-        if (invincibleCounter <= 0)
+        if (Time.time > canDamage)
         {
             currentHealth--;
+            canDamage = Time.time + damageTime;
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
@@ -202,10 +205,6 @@ public class CharacterMovement : MonoBehaviour
                 SceneManager.LoadScene("Death");
                 AudioManager.instance.SwitchMusic("Theme1", "MenuBGM");
             }
-        }
-        else 
-        {
-            invincibleCounter = invincibleLength;
         }
         HealthSystem.instance.HealthDisplay();
     }
