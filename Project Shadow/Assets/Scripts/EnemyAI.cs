@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        var agent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
         Rest();
     }
 
@@ -43,10 +43,8 @@ public class EnemyAI : MonoBehaviour
                 transform.Translate (new Vector3 (0, speed * Time.deltaTime, 0));
         }
         */
-        agent.destination = target.transform.position;
+        agent.SetDestination(target.transform.position);
         DebugDrawPath(agent.path.corners);
-
-
     }
 
     public static void DebugDrawPath(Vector3[] corners)
