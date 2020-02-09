@@ -17,11 +17,11 @@ public class Spark : MonoBehaviour
     }
     void Show()
     {
-        SpikeTrap1A.GetComponent<Renderer>().enabled = true;
+        SpikeTrap1A.GetComponent<Renderer>().enabled = true;//Shows the sprite
     }
     void Hide()
     {
-        SpikeTrap1A.GetComponent<Renderer>().enabled = false;
+        SpikeTrap1A.GetComponent<Renderer>().enabled = false;//hides the sprite
     }
     void HideChildren()
     {
@@ -49,16 +49,18 @@ public class Spark : MonoBehaviour
             time += Time.deltaTime;
             if (time > 1.0f)
             {
+                //basic timmer
                 second++;
                 time = 0.0f;
-                Debug.Log(second);
             }
             if (second < 2)
             {
+                //shows befor the fire for the fire trap
                 Show();
             }
             else 
             {
+                //resets the sparks
                 second = 0;
                 canMove = false;
                 Hide();

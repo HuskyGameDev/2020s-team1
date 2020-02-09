@@ -14,13 +14,10 @@ public class FireTrapBoutton : MonoBehaviour
         CharacterMovement sp = collision.GetComponent<CharacterMovement>();
         if (sp != null)
         {
+            //Player activates this trap, shoot sparkes than fire
             Spark.Ativated();
             FireTrap.Ativated();
         }
-        // SpikeTrapAS var = new SpikeTrapAS();
-        // var.Ativated();
-
-
 
     }
     // Update is called once per frame

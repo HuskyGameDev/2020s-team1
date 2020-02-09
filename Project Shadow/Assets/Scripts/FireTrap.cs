@@ -5,7 +5,6 @@ using UnityEngine;
 public class FireTrap : MonoBehaviour
 {
     public float moveSpeed = 5;
-    Vector2 movement;
     public Rigidbody2D rb;
     public int second, minute;
     public bool timerIsOn = false;
@@ -21,11 +20,11 @@ public class FireTrap : MonoBehaviour
     }
     void Show()
     {
-        SpikeTrap1A.GetComponent<Renderer>().enabled = true;
+        SpikeTrap1A.GetComponent<Renderer>().enabled = true;//Shows the sprite
     }
     void Hide()
     {
-        SpikeTrap1A.GetComponent<Renderer>().enabled = false;
+        SpikeTrap1A.GetComponent<Renderer>().enabled = false;//hides the sprite
     }
     void HideChildren()
     {
@@ -54,17 +53,18 @@ public class FireTrap : MonoBehaviour
             time += Time.deltaTime;
             if (time > 1.0f)
             {
+                //Basic timmer
                 second++;
                 time = 0.0f;
-                Debug.Log(second);
             }
             if (second < 5 && second >= 2)
             {
+                //shows the spark
                 Show();
-                Debug.Log("here");
             }
             else if (second > 5)
             {
+                //shows the fire 
                 second = 0;
                 canMove = false;
                 Hide();
@@ -75,6 +75,7 @@ public class FireTrap : MonoBehaviour
     }
     public static void Ativated()
     {
+        //the trap is activated
         canMove = true;
     }
 }

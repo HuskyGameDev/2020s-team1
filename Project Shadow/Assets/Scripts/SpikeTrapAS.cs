@@ -22,11 +22,11 @@ public class SpikeTrapAS : MonoBehaviour
     }
     void Show()
     {
-       SpikeTrap1A.GetComponent<Renderer>().enabled = true;
+       SpikeTrap1A.GetComponent<Renderer>().enabled = true;//Shows the sprite
     }
     void Hide()
     {
-        SpikeTrap1A.GetComponent<Renderer>().enabled = false;
+        SpikeTrap1A.GetComponent<Renderer>().enabled = false;//hides the sprite
     }
     void HideChildren()
     {
@@ -57,11 +57,13 @@ void Update()
             time += Time.deltaTime;
             if (time > 1.0f)
             {
+                //basic timmer
                 second++;
                 time = 0.0f;
             }
             if (second < 1)
             {
+                //spike comes out of the wall
                 movement.y = moveSpeed;
                 rb.MovePosition(rb.position + movement);
                 Show();
@@ -69,16 +71,18 @@ void Update()
             else if (second < 2)
             {
                 {
-                   
+                   //spike waites a second before going back in the wall
                 }
             }
             else if (second < 3 && second >= 2)
             {
+                //spike moves backwords into the wall
                 movement.y = moveSpeed;
                 rb.MovePosition(rb.position - movement);
             }
             else
             {
+                //hides and resets the trap
                 second = 0;
                 canMove = false;
                 Hide();
@@ -89,20 +93,4 @@ void Update()
     {
         canMove = true;
     }
-    public void Move()
-    {
-        while (second < 3)
-        {
-           // timerIsOn = false;
-            time += Time.deltaTime;
-            if (time > 1.0f)
-            {
-                second++;
-                time = 0.0f;
-            }
-            movement.y = moveSpeed;
-            rb.MovePosition(rb.position+movement);
-        }
-    }
-
 }

@@ -14,13 +14,9 @@ public class SpikeTrapButton : MonoBehaviour
         CharacterMovement sp = collision.GetComponent<CharacterMovement>();
         if (sp != null)
         {
+            //If player collides withh button activate spikes
             SpikeTrapAS.Ativated();
         }
-       // SpikeTrapAS var = new SpikeTrapAS();
-       // var.Ativated();
-
-
-
     }
     //Start is called before the first frame update
     void Start()
