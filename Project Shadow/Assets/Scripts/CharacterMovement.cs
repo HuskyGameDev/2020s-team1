@@ -19,15 +19,32 @@ public class CharacterMovement : MonoBehaviour
     public AudioManager audioManager;
     private float timeSinceLastPlay = 0.3f;
 
+    public static CharacterMovement instance;
+    public int currentHealth, maxHealth;
+    public float invincibleLength;
+    private float invincibleCounter;
+    private float damageTime = 1.5f;
+    private float canDamage = -1f;
+
+    private void Awake() 
+    {
+        instance = this;
+    }
+
     //Start is called before the first frame update
     void Start()
     {
-        
+        currentHealth = maxHealth;
+        invincibleCounter = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (invincibleCounter > 0) 
+        {
+            invincibleCounter -= Time.deltaTime;
+        }
         timeSinceLastPlay += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
@@ -130,12 +147,18 @@ public class CharacterMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Heart heart = collision.GetComponent<Heart>();
+        if (heart != null) 
+        {
+            instance.HealPlayer();
+        }
         SpikeTrapAS sp = collision.GetComponent<SpikeTrapAS>();
         if (sp != null)
         {
-            AudioManager.instance.Play("GameOverMusic");
+            instance.damagePlayer();
+/*            AudioManager.instance.Play("GameOverMusic");
             SceneManager.LoadScene("Death");
-            AudioManager.instance.SwitchMusic("Theme1", "MenuBGM");
+            AudioManager.instance.SwitchMusic("Theme1", "MenuBGM");*/
             return;
         }
 
@@ -167,6 +190,32 @@ public class CharacterMovement : MonoBehaviour
             SceneManager.LoadScene("Death");
             AudioManager.instance.SwitchMusic("Theme1", "MenuBGM");
         }
-
     }
+
+    public void damagePlayer()
+    {
+        if (Time.time > canDamage)
+        {
+            currentHealth--;
+            canDamage = Time.time + damageTime;
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+                AudioManager.instance.Play("GameOverMusic");
+                SceneManager.LoadScene("Death");
+                AudioManager.instance.SwitchMusic("Theme1", "MenuBGM");
+            }
+        }
+        HealthSystem.instance.HealthDisplay();
+    }
+    public void HealPlayer() 
+    {
+        currentHealth++;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        HealthSystem.instance.HealthDisplay();
+    }
+
 }
