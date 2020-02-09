@@ -15,22 +15,43 @@ public class EnemyAI : MonoBehaviour
     public int attack1Damage = 1;
     public float timeBetweenAttacks;
 
+    public GameObject Room1;
+    public GameObject Room2;
+    public GameObject Room3;
+    public GameObject Room4;
+    public GameObject Room5;
+    int count = 5;
 
+    ArrayList rooms = new ArrayList();
 
     // Use this for initialization
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         Rest();
+        rooms.Add(Room1);
+        rooms.Add(Room2);
+        rooms.Add(Room3);
+        rooms.Add(Room4);
+        rooms.Add(Room5);
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveToPlayer();
+        Chase();
+        int rand = Random.Range(1, 5);
+        GameObject room = (GameObject) rooms[rand];
+        //Wander(room);
     }
 
-    public void MoveToPlayer()
+    public void Wander(GameObject room)
+    {
+        agent.SetDestination(room.transform.position);
+        DebugDrawPath(agent.path.corners);
+    }
+
+    public void Chase()
     {
         /*
         //rotate to look at player
@@ -38,7 +59,8 @@ public class EnemyAI : MonoBehaviour
         transform.Rotate (new Vector3 (0, -90,-90), Space.Self);
 
         //move towards player
-        if (Vector3.Distance (transform.position, target.position) > attack1Range) 
+        
+        if (Vector3.Distance (transform.position, target.transform.position) > attack1Range) 
         {
                 transform.Translate (new Vector3 (0, speed * Time.deltaTime, 0));
         }
