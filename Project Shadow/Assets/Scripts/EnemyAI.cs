@@ -28,6 +28,10 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+
+
         Rest();
         rooms.Add(Room1);
         rooms.Add(Room2);

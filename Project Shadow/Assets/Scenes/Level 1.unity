@@ -105547,15 +105547,20 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1806777448842214250, guid: 77b186c0598ce874595e21b139b3154c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1806777448842214248, guid: 77b186c0598ce874595e21b139b3154c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.92
+      value: 18.9
       objectReference: {fileID: 0}
     - target: {fileID: 1806777448842214248, guid: 77b186c0598ce874595e21b139b3154c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.44
+      value: -75.5
       objectReference: {fileID: 0}
     - target: {fileID: 1806777448842214248, guid: 77b186c0598ce874595e21b139b3154c,
         type: 3}
