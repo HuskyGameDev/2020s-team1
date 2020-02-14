@@ -51,6 +51,7 @@ public class EnemyAI : MonoBehaviour
         int rand = Random.Range(1, 5);
         GameObject room = (GameObject) rooms[rand];
         //Wander(room);
+        
     }
 
     public void Wander(GameObject room)

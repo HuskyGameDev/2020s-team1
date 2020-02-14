@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1806777448842214251}
   - component: {fileID: 1806777448842214249}
   - component: {fileID: 1806777448842214254}
+  - component: {fileID: 8043939592216722631}
   m_Layer: 0
   m_Name: BasicEnemy
   m_TagString: Untagged
@@ -99,6 +100,11 @@ MonoBehaviour:
   attack1Range: 1
   attack1Damage: 1
   timeBetweenAttacks: 2
+  Room1: {fileID: 0}
+  Room2: {fileID: 0}
+  Room3: {fileID: 0}
+  Room4: {fileID: 0}
+  Room5: {fileID: 0}
 --- !u!58 &1806777448842214254
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -115,3 +121,19 @@ CircleCollider2D:
   m_Offset: {x: -0.000000005421543, y: 0.045479205}
   serializedVersion: 2
   m_Radius: 0.4025455
+--- !u!70 &8043939592216722631
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806777448842214250}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0025724887, y: -0.012953902}
+  m_Size: {x: 0.44853336, y: 0.66031516}
+  m_Direction: 0
