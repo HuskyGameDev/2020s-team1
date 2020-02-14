@@ -8,6 +8,7 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
+    
     public GameObject target;
     private NavMeshAgent agent;
     public float speed = 3f;
@@ -44,6 +45,9 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         Chase();
+        Vector3 pos = transform.position;
+        pos.z = 1;
+        transform.position = pos;
         int rand = Random.Range(1, 5);
         GameObject room = (GameObject) rooms[rand];
         //Wander(room);
