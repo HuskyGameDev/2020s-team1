@@ -54,8 +54,8 @@ public class EnemyAI : MonoBehaviour
 
         // this locks rotation on x and y becase 2d objects only need to rotate on z axis
         transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
-
-        //below code doesn't work, but do not delete!
+       
+        //below is my work in progress
         /*
         Vector3 direction = transform.position;
         var rotation = Quaternion.LookRotation(direction);
@@ -76,11 +76,6 @@ public class EnemyAI : MonoBehaviour
             rotation *= Quaternion.Euler(0, 0, 0); // rotate charater 0 degrees on z axis
         }
         transform.eulerAngles = rotation.eulerAngles; */
-
-        var relativePos = target.transform.position - transform.position;
-        var angle = Mathf.Atan2(relativePos.y, relativePos.x) * Mathf.Rad2Deg + 90;
-        var rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = rotation;
 
         int rand = Random.Range(1, 5);
         GameObject room = (GameObject)rooms[rand];
