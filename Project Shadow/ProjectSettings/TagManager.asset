@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Key
   - Heart
+  - InventoryController
+  - FuelType1
   layers:
   - Default
   - TransparentFX

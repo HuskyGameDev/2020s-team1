@@ -21,10 +21,11 @@ public class CharacterMovement : MonoBehaviour
 
     public static CharacterMovement instance;
     public int currentHealth, maxHealth;
-    public float invincibleLength;
-    private float invincibleCounter;
     private float damageTime = 1.5f;
     private float canDamage = -1f;
+
+    InventoryController inventoryController;
+    public GameObject Inventory;
 
     private void Awake() 
     {
@@ -34,17 +35,13 @@ public class CharacterMovement : MonoBehaviour
     //Start is called before the first frame update
     void Start()
     {
+        inventoryController = Inventory.GetComponent<InventoryController>();
         currentHealth = maxHealth;
-        invincibleCounter = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (invincibleCounter > 0) 
-        {
-            invincibleCounter -= Time.deltaTime;
-        }
         timeSinceLastPlay += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
@@ -56,6 +53,10 @@ public class CharacterMovement : MonoBehaviour
             {
                 isRunning = true;
             }
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            inventoryController.fuelLamp();
         }
 
 
@@ -166,9 +167,10 @@ public class CharacterMovement : MonoBehaviour
         FuelType1 fuelType1 = collision.GetComponent<FuelType1>();
         if (fuelType1 != null)
         {
-            lightSourceControl.fuelIncrease(fuelType1.fuelAmount);
+            inventoryController.fuelCount++;
+            //lightSourceControl.fuelIncrease(fuelType1.fuelAmount);
             //audioManager.Play("Oil");
-            AudioManager.instance.Play("Oil");
+            //AudioManager.instance.Play("Oil");
             fuelType1.destroy();
             return;
         }
