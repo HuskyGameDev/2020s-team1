@@ -31,6 +31,7 @@ public class invisiEnemy : MonoBehaviour
         // below lock rotation so enemy doesnt rotate on3d axis
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        
 
 
         Rest();
@@ -42,14 +43,14 @@ public class invisiEnemy : MonoBehaviour
 
         int rand = Random.Range(1, 5);
         GameObject room = (GameObject)rooms[rand];
-        //destination = room.transform.position;
-        //Wander(room);
+        destination = room.transform.position;
+        Wander(room);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Chase();
+        //Chase();
         // below three lines lock z position so it doesnt go below the map
         pos = transform.position;
         pos.z = 1;
@@ -85,9 +86,7 @@ public class invisiEnemy : MonoBehaviour
         destination = target.transform.position;
         agent.SetDestination(destination); // uses navmesh to find how to get to target
         DebugDrawPath(agent.path.corners); //draws path on view screen
-
-
-
+        
     }
 
     //this method just shows lines for where enemy is going, not necessary for function of pathfinding
