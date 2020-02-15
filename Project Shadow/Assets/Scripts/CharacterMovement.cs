@@ -25,6 +25,7 @@ public class CharacterMovement : MonoBehaviour
     private float invincibleCounter;
     private float damageTime = 1.5f;
     private float canDamage = -1f;
+    public ParticleSystem particle;
 
     private void Awake() 
     {
@@ -155,6 +156,7 @@ public class CharacterMovement : MonoBehaviour
         SpikeTrapAS sp = collision.GetComponent<SpikeTrapAS>();
         if (sp != null)
         {
+            particle.Emit(1);
             instance.damagePlayer();
 /*            AudioManager.instance.Play("GameOverMusic");
             SceneManager.LoadScene("Death");
@@ -196,6 +198,7 @@ public class CharacterMovement : MonoBehaviour
     {
         if (Time.time > canDamage)
         {
+            BloodPartLan.Activate();
             currentHealth--;
             canDamage = Time.time + damageTime;
             if (currentHealth <= 0)
