@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class invisiEnemy : MonoBehaviour
 {
-    public GameObject target;
+    public GameObject player;
     public Vector3 destination;
     public NavMeshAgent agent;
     public Vector3 pos;
@@ -33,24 +33,31 @@ public class invisiEnemy : MonoBehaviour
         rooms.Add(Room4);
         rooms.Add(Room5);
 
+        int rand = Random.Range(1, 5);
+        GameObject room = (GameObject)rooms[rand];
+        Chase(room);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Chase();
+        //Chase(player);
         pos = transform.position;
         pos.z = 1;
         transform.position = pos;
 
         transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
 
-        int rand = Random.Range(1, 5);
-        GameObject room = (GameObject)rooms[rand];
-        //Wander(room);
+        if(Vector3.Distance(transform.position, destination) < 2.5)
+        {
+            int rand = Random.Range(1, 5);
+            GameObject room = (GameObject)rooms[rand];
+            Chase(room);
+        }
     }
 
-    public void Chase()
+    public void Chase(GameObject target)
     {
         destination = target.transform.position;
         agent.SetDestination(destination); // uses navmesh to find how to get to target

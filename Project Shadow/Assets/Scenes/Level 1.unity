@@ -75085,7 +75085,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1638964510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.419247, y: 3.366705, z: -108.765625}
+  m_LocalPosition: {x: 28.419247, y: 3.366705, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2037249802}
@@ -104354,15 +104354,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930096df604d96f4e86d114cd0be0548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1078978634}
+  player: {fileID: 0}
   destination: {x: 0, y: 0, z: 0}
   agent: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  Room1: {fileID: 0}
-  Room2: {fileID: 0}
-  Room3: {fileID: 0}
-  Room4: {fileID: 0}
-  Room5: {fileID: 0}
+  Room1: {fileID: 2037249801}
+  Room2: {fileID: 438013949}
+  Room3: {fileID: 371232771}
+  Room4: {fileID: 1142953076}
+  Room5: {fileID: 1291450068}
 --- !u!195 &1950551432
 NavMeshAgent:
   m_ObjectHideFlags: 0
