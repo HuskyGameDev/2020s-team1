@@ -11,6 +11,7 @@ public class EnemyAI : MonoBehaviour
 
     public GameObject target;
     Vector3 pos;
+    Vector3 destination;
     private NavMeshAgent agent; //this is the part of enemy that recognized the navmesh which is used for navigation
     public float speed = 3f;
     public float attack1Range = 1f;
@@ -24,9 +25,6 @@ public class EnemyAI : MonoBehaviour
         // below lock rotation so enemy doesnt rotate on3d axis
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-
-
-        Rest();
         
     }
 
@@ -56,6 +54,7 @@ public class EnemyAI : MonoBehaviour
 
     public void Chase()
     {
+        
         agent.SetDestination(target.transform.position); // uses navmesh to find how to get to target
         DebugDrawPath(agent.path.corners); //draws path on view screen
     }

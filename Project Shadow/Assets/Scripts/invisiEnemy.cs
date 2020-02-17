@@ -7,7 +7,7 @@ public class invisiEnemy : MonoBehaviour
 {
     public GameObject player;
     public Vector3 destination;
-    public NavMeshAgent agent;
+    private NavMeshAgent agent;
     public Vector3 pos;
 
     public GameObject Room1;
@@ -23,7 +23,6 @@ public class invisiEnemy : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
@@ -35,6 +34,8 @@ public class invisiEnemy : MonoBehaviour
 
         int rand = Random.Range(1, 5);
         GameObject room = (GameObject)rooms[rand];
+        Debug.Log("Destination set to " + room);
+        Debug.Log("at: " + room.transform.position.x + ", " + room.transform.position.y + ", " + room.transform.position.z);
         Chase(room);
 
     }
@@ -43,16 +44,19 @@ public class invisiEnemy : MonoBehaviour
     void Update()
     {
         //Chase(player);
+        /*
         pos = transform.position;
         pos.z = 1;
         transform.position = pos;
-
-        transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
+        */
+        transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z); 
 
         if(Vector3.Distance(transform.position, destination) < 2.5)
         {
             int rand = Random.Range(1, 5);
             GameObject room = (GameObject)rooms[rand];
+            Debug.Log("Destination set to " + room);
+            Debug.Log("at: " + room.transform.position.x + ", " + room.transform.position.y + ", " + room.transform.position.z);
             Chase(room);
         }
     }
