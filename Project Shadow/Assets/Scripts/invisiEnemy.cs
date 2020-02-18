@@ -19,6 +19,10 @@ public class invisiEnemy : MonoBehaviour
 
     ArrayList rooms = new ArrayList();
 
+    public float acceleration = 2f;
+    public float deceleration = 60f;
+    public float closeEnoughMeters = 4f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +63,9 @@ public class invisiEnemy : MonoBehaviour
             Debug.Log("at: " + room.transform.position.x + ", " + room.transform.position.y + ", " + room.transform.position.z);
             Chase(room);
         }
+
+        if (agent.hasPath)
+            agent.acceleration = (agent.remainingDistance < closeEnoughMeters) ? deceleration : acceleration;
     }
 
     public void Chase(GameObject target)
