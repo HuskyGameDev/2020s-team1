@@ -23,6 +23,7 @@ public class CharacterMovement : MonoBehaviour
     public int currentHealth, maxHealth;
     private float damageTime = 1.5f;
     private float canDamage = -1f;
+    public ParticleSystem particle;
 
     InventoryController inventoryController;
     public GameObject Inventory;
@@ -156,6 +157,7 @@ public class CharacterMovement : MonoBehaviour
         SpikeTrapAS sp = collision.GetComponent<SpikeTrapAS>();
         if (sp != null)
         {
+            particle.GetComponent<ParticleSystem>().Emit(1);
             instance.damagePlayer();
 /*            AudioManager.instance.Play("GameOverMusic");
             SceneManager.LoadScene("Death");
