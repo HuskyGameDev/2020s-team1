@@ -18,9 +18,9 @@ public class EnemyAI : MonoBehaviour
     public int attack1Damage = 1;
     public float timeBetweenAttacks;
 
-    public float acceleration = 2f;
-    public float deceleration = 60f;
-    public float closeEnoughMeters = 4f;
+    //public float acceleration = 2f;
+    //public float deceleration = 60f;
+    //public float closeEnoughMeters = 4f;
 
     // Use this for initialization
     void Start()
@@ -48,9 +48,10 @@ public class EnemyAI : MonoBehaviour
         var angle = Mathf.Atan2(relativePos.y, relativePos.x) * Mathf.Rad2Deg + 90;
         var rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = rotation;
+        
 
-        if (agent.hasPath)
-            agent.acceleration = (agent.remainingDistance < closeEnoughMeters) ? deceleration : acceleration;
+        //if (agent.hasPath)
+       //     agent.acceleration = (agent.remainingDistance < closeEnoughMeters) ? deceleration : acceleration;
     }
 
     public void Wander(GameObject room)

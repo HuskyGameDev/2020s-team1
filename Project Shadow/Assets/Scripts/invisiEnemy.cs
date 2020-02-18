@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class invisiEnemy : MonoBehaviour
 {
     public GameObject player;
-    public Vector3 destination;
+    public GameObject destination;
     private NavMeshAgent agent;
     public Vector3 pos;
 
@@ -19,9 +19,9 @@ public class invisiEnemy : MonoBehaviour
 
     ArrayList rooms = new ArrayList();
 
-    public float acceleration = 2f;
-    public float deceleration = 60f;
-    public float closeEnoughMeters = 4f;
+    //public float acceleration = 2f;
+    //public float deceleration = 60f;
+    //public float closeEnoughMeters = 4f;
 
     // Start is called before the first frame update
     void Start()
@@ -35,43 +35,53 @@ public class invisiEnemy : MonoBehaviour
         rooms.Add(Room3);
         rooms.Add(Room4);
         rooms.Add(Room5);
-
-        int rand = Random.Range(1, 5);
-        GameObject room = (GameObject)rooms[rand];
-        Debug.Log("Destination set to " + room);
-        Debug.Log("at: " + room.transform.position.x + ", " + room.transform.position.y + ", " + room.transform.position.z);
-        Chase(room);
-
+        
+        Wander();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Chase(player);
-        /*
+        
         pos = transform.position;
         pos.z = 1;
         transform.position = pos;
-        */
         transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z); 
 
-        if(Vector3.Distance(transform.position, destination) < 2.5)
+        if(Vector3.Distance(transform.position, destination.transform.position) < 2.5 && !destination.Equals(player))
         {
-            int rand = Random.Range(1, 5);
-            GameObject room = (GameObject)rooms[rand];
-            Debug.Log("Destination set to " + room);
-            Debug.Log("at: " + room.transform.position.x + ", " + room.transform.position.y + ", " + room.transform.position.z);
-            Chase(room);
+            Wander();
+        }
+        if(Vector3.Distance(player.transform.position, transform.position) < 6)
+        {
+            destination = player;
+            Debug.Log("enemy chasing player");
+            Chase();
         }
 
-        if (agent.hasPath)
-            agent.acceleration = (agent.remainingDistance < closeEnoughMeters) ? deceleration : acceleration;
+        if (Vector3.Distance(player.transform.position, transform.position) > 8 && destination.Equals(player))
+        {
+            Wander();
+        }
+        DebugDrawPath(agent.path.corners);
+
+        //if (agent.hasPath)
+        //   agent.acceleration = (agent.remainingDistance < closeEnoughMeters) ? deceleration : acceleration;
     }
 
-    public void Chase(GameObject target)
+    public void Wander()
     {
-        destination = target.transform.position;
-        agent.SetDestination(destination); // uses navmesh to find how to get to target
+        int rand = Random.Range(1, 5);
+        GameObject room = (GameObject)rooms[rand];
+        destination = room;
+        Debug.Log("enemy wandering");
+        Chase();
+    }
+
+    public void Chase()
+    {
+        //destination = target;
+        agent.SetDestination(destination.transform.position); // uses navmesh to find how to get to target
         DebugDrawPath(agent.path.corners); //draws path on view screen
     }
     public static void DebugDrawPath(Vector3[] corners)
