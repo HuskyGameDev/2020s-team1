@@ -12,11 +12,13 @@ public class FireTrap : MonoBehaviour
     public GameObject SpikeTrap1A;
     public static bool canMove;
     public Sprite spriteImage;
+    public ParticleSystem friePart;
     // Start is called before the first frame update
     void Start()
     {
-        canMove = false;
         Hide();
+        canMove = false;
+        friePart.GetComponent<ParticleSystem>().enableEmission = true;
     }
     void Show()
     {
@@ -61,6 +63,7 @@ public class FireTrap : MonoBehaviour
             {
                 //shows the spark
                 Show();
+                friePart.GetComponent<ParticleSystem>().Emit(1);
             }
             else if (second > 5)
             {
