@@ -62,7 +62,7 @@ public class FireTrap : MonoBehaviour
             if (second < 5 && second >= 2)
             {
                 //shows the spark
-                Show();
+                Hide();
                 friePart.GetComponent<ParticleSystem>().Emit(1);
             }
             else if (second > 5)
