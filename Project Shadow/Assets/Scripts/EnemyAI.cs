@@ -9,11 +9,21 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
 
-    public GameObject target;
+    public GameObject player;
+    public GameObject destination;
     Vector3 pos;
-    Vector3 destination;
     Vector3 oldPositon;
     private NavMeshAgent agent; //this is the part of enemy that recognized the navmesh which is used for navigation
+
+    public GameObject Room1;
+    public GameObject Room2;
+    public GameObject Room3;
+    public GameObject Room4;
+    public GameObject Room5;
+    int count = 5;
+
+    ArrayList rooms = new ArrayList();
+
     public float speed = 3f;
     public float attack1Range = 1f;
     public int attack1Damage = 1;
@@ -27,10 +37,22 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+
         // below lock rotation so enemy doesnt rotate on3d axis
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         oldPositon = transform.position;
+
+        rooms.Add(Room1);
+        rooms.Add(Room2);
+        rooms.Add(Room3);
+        rooms.Add(Room4);
+        rooms.Add(Room5);
+
+        Wander();
+        
     }
 
     // Update is called once per frame
@@ -51,21 +73,41 @@ public class EnemyAI : MonoBehaviour
         var rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = rotation;
 
+        if (Vector3.Distance(transform.position, destination.transform.position) < 2.5 && !destination.Equals(player))
+        {
+            Wander();
+        }
+        if (Vector3.Distance(player.transform.position, transform.position) < 6)
+        {
+            destination = player;
+            Debug.Log("enemy chasing player");
+            Chase();
+        }
+
+        if (Vector3.Distance(player.transform.position, transform.position) > 8 && destination.Equals(player))
+        {
+            Wander();
+        }
+        DebugDrawPath(agent.path.corners);
+
         oldPositon = transform.position;
         //if (agent.hasPath)
        //     agent.acceleration = (agent.remainingDistance < closeEnoughMeters) ? deceleration : acceleration;
     }
 
-    public void Wander(GameObject room)
+    public void Wander()
     {
-        agent.SetDestination(room.transform.position);
-        DebugDrawPath(agent.path.corners);
+        int rand = Random.Range(1, 5);
+        GameObject room = (GameObject)rooms[rand];
+        destination = room;
+        Debug.Log("enemy wandering");
+        Chase();
     }
 
     public void Chase()
     {
-        
-        agent.SetDestination(target.transform.position); // uses navmesh to find how to get to target
+        //destination = target;
+        agent.SetDestination(destination.transform.position); // uses navmesh to find how to get to target
         DebugDrawPath(agent.path.corners); //draws path on view screen
     }
 
