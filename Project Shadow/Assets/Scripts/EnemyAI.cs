@@ -12,6 +12,7 @@ public class EnemyAI : MonoBehaviour
     public GameObject target;
     Vector3 pos;
     Vector3 destination;
+    Vector3 oldPositon;
     private NavMeshAgent agent; //this is the part of enemy that recognized the navmesh which is used for navigation
     public float speed = 3f;
     public float attack1Range = 1f;
@@ -29,7 +30,7 @@ public class EnemyAI : MonoBehaviour
         // below lock rotation so enemy doesnt rotate on3d axis
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-        
+        oldPositon = transform.position;
     }
 
     // Update is called once per frame
@@ -44,12 +45,13 @@ public class EnemyAI : MonoBehaviour
         // this locks rotation on x and y becase 2d objects only need to rotate on z axis
         transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
 
-        var relativePos = target.transform.position - transform.position;
-        var angle = Mathf.Atan2(relativePos.y, relativePos.x) * Mathf.Rad2Deg + 90;
+        //var relativePos = target.transform.position - transform.position;
+        var relativePos = oldPositon - transform.position;
+        var angle = Mathf.Atan2(relativePos.y, relativePos.x) * Mathf.Rad2Deg + 270;
         var rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = rotation;
-        
 
+        oldPositon = transform.position;
         //if (agent.hasPath)
        //     agent.acceleration = (agent.remainingDistance < closeEnoughMeters) ? deceleration : acceleration;
     }
