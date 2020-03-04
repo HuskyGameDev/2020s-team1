@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class LightSourceControl : MonoBehaviour
 {
     public Light lightSource;
+    //public Light lightSource2;
     private bool isLightOn = false;
     public float fuelDecreasePerSecond;
     public float currentFuelLevel;

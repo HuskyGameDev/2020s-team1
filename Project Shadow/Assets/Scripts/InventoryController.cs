@@ -8,7 +8,7 @@ public class InventoryController : MonoBehaviour
     public int fuelCount;
     public Text fuelText;
     public GameObject fuelSource;
-    LightSourceControl lightSource;
+    LampSwitch lightSource;
 
     InventoryController inventoryController;
     public GameObject Inventory;
@@ -16,7 +16,7 @@ public class InventoryController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lightSource = fuelSource.GetComponent<LightSourceControl>();
+        lightSource = fuelSource.GetComponent<LampSwitch>();
         fuelCount = 0;
     }
     private void Update()
