@@ -118,6 +118,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         if (isRunning)
         {
             rb.MovePosition(rb.position + movement * runSpeed * Time.fixedDeltaTime);
