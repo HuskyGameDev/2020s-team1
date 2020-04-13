@@ -10,9 +10,6 @@ public class InventoryController : MonoBehaviour
     public GameObject fuelSource;
     LampSwitch lightSource;
 
-    InventoryController inventoryController;
-    public GameObject Inventory;
-
     // Start is called before the first frame update
     void Start()
     {

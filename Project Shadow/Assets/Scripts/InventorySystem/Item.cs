@@ -1,18 +1,22 @@
-﻿using UnityEngine;
-[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
-public class Item : ScriptableObject
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Item : MonoBehaviour
 {
-    new public string name = "New Item";
-    public Sprite icon = null;
+    public bool Health;
+    public bool Oil;
+    public int restoreHealth;
+    public int amount;
+
+    public Sprite icon;
     public bool showInInventory = true;
-
-    public virtual void Use() 
+    public void Use() 
     {
-        //do some thing
+        //if (Health) 
+        //{
+        //    GameObject player = GameObject.FindGameObjectWithTag("Player");
+        //    player.GetComponent<CharacterMovement>().HealPlayer();
+        //}
     }
-    public void RemoveFromInventory() 
-    {
-        Inventory.instance.Remove(this);
-    }
-
 }

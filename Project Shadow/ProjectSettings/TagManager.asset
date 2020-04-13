@@ -8,6 +8,7 @@ TagManager:
   - Heart
   - InventoryController
   - FuelType1
+  - Inventory
   layers:
   - Default
   - TransparentFX
