@@ -8,16 +8,23 @@ public class InventorySlot : MonoBehaviour
     [HideInInspector]
     public Image[] icon;
     [HideInInspector]
-    public string itemName;
+    private string[] itemName;
     [HideInInspector]
     public int amountHealthToRestore;
     [HideInInspector]
     public int amountOfItems;
-
+    CharacterMovement playerController;
+    CanvasController canvasController;
+    [HideInInspector]
+    public UI_InventoryController inventoryController;
     // Start is called before the first frame update
 
     void Start()
     {
+        inventoryController = GameObject.FindGameObjectWithTag("Inventory").GetComponent<UI_InventoryController>();
+        canvasController = GameObject.FindGameObjectWithTag("Canvas").GetComponent<CanvasController>();
+        itemName = new string[10];
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>();
         icon = new Image[10];
         icon[0] = GameObject.Find("Icon1").GetComponent<Image>();
         icon[1] = GameObject.Find("Icon2").GetComponent<Image>();
@@ -32,10 +39,36 @@ public class InventorySlot : MonoBehaviour
 
 
     }
-    public void AddItem(Sprite image,int index) 
+    public void Add(Sprite image,int index, string ItemName) 
     {
+        itemName[index] = ItemName;
         icon[index].sprite = image;
         icon[index].enabled = true;
-        Debug.Log("index " + index);
+        //Debug.Log("index " + index);
+    }
+    public void Use(int index)
+    {
+        if (inventoryController.isOccupied[index]){
+            //Debug.Log("use " + index);
+            if (itemName[index] == "Health")
+            {
+                if (playerController.currentHealth < 6)
+                {
+                    playerController.HealPlayer();
+                    itemName[index] = "";
+                    icon[index].sprite = null;
+                    icon[index].enabled = false;
+                    //Debug.Log("use Health from " + index);
+                }
+            }
+            else if (itemName[index] == "Oil")
+            {
+                canvasController.fuelLamp();
+                itemName[index] = "";
+                icon[index].sprite = null;
+                icon[index].enabled = false;
+                //Debug.Log("fuel Oil from " + index);
+            }
+        }
     }
 }

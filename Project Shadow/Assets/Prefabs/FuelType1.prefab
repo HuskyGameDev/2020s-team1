@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6418022818870468526}
   - component: {fileID: 6418022818870468527}
-  - component: {fileID: 6418022818870468524}
   - component: {fileID: 6418022818870468525}
   m_Layer: 0
   m_Name: FuelType1
@@ -82,19 +81,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6418022818870468524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6418022818870468434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e41984f214b665f448ef99945bdd68e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fuelAmount: 1
 --- !u!58 &6418022818870468525
 CircleCollider2D:
   m_ObjectHideFlags: 0

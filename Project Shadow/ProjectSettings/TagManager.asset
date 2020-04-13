@@ -9,6 +9,7 @@ TagManager:
   - InventoryController
   - FuelType1
   - Inventory
+  - Canvas
   layers:
   - Default
   - TransparentFX

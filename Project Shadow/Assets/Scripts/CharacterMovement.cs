@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class CharacterMovement : MonoBehaviour
 {
+    public int keyCounter;
     public float moveSpeed = 5;
     public float runSpeed = 7;
     private bool isRunning = false;
@@ -15,7 +16,6 @@ public class CharacterMovement : MonoBehaviour
     public Transform characterTrnsform;
     //public float fuelType1Amount;
     public LightSourceControl lightSourceControl;
-    public Text txtKey;
     public AudioManager audioManager;
     private float timeSinceLastPlay = 0.3f;
 
@@ -25,8 +25,22 @@ public class CharacterMovement : MonoBehaviour
     private float canDamage = -1f;
     public ParticleSystem particle;
 
-    InventoryController inventoryController;
-    public GameObject Inventory;
+    CanvasController canvasController;
+
+    InventorySlot inventorySlot;
+
+    public GameObject inventorySlot1;
+    public GameObject inventorySlot2;
+    public GameObject inventorySlot3;
+    public GameObject inventorySlot4;
+    public GameObject inventorySlot5;
+    public GameObject inventorySlot6;
+    public GameObject inventorySlot7;
+    public GameObject inventorySlot8;
+    public GameObject inventorySlot9;
+    public GameObject inventorySlot10;
+
+
 
     private void Awake() 
     {
@@ -36,13 +50,55 @@ public class CharacterMovement : MonoBehaviour
     //Start is called before the first frame update
     void Start()
     {
-        inventoryController = Inventory.GetComponent<InventoryController>();
+        keyCounter = 0;
+        canvasController = GameObject.FindGameObjectWithTag("Canvas").GetComponent<CanvasController>();
         currentHealth = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) 
+        {
+            inventorySlot1.GetComponent<InventorySlot>().Use(0);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            inventorySlot2.GetComponent<InventorySlot>().Use(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            inventorySlot3.GetComponent<InventorySlot>().Use(2);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            inventorySlot4.GetComponent<InventorySlot>().Use(3);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            inventorySlot5.GetComponent<InventorySlot>().Use(4);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            inventorySlot6.GetComponent<InventorySlot>().Use(5);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            inventorySlot7.GetComponent<InventorySlot>().Use(6);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            inventorySlot8.GetComponent<InventorySlot>().Use(7);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            inventorySlot9.GetComponent<InventorySlot>().Use(8);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            inventorySlot10.GetComponent<InventorySlot>().Use(9);
+        }
+
         timeSinceLastPlay += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
@@ -57,7 +113,7 @@ public class CharacterMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            inventoryController.fuelLamp();
+            canvasController.fuelLamp();
         }
 
 
@@ -167,27 +223,6 @@ public class CharacterMovement : MonoBehaviour
         }
 
 
-        FuelType1 fuelType1 = collision.GetComponent<FuelType1>();
-        if (fuelType1 != null)
-        {
-            inventoryController.fuelCount++;
-            //lightSourceControl.fuelIncrease(fuelType1.fuelAmount);
-            //audioManager.Play("Oil");
-            //AudioManager.instance.Play("Oil");
-            fuelType1.destroy();
-            return;
-        }
-
-        Key k = collision.GetComponent<Key>();
-        if (k != null)
-        {
-            txtKey.text = Convert.ToString(Convert.ToInt32(txtKey.text) + 1);
-            //audioManager.Play("Key");
-            AudioManager.instance.Play("Key");
-            k.destroy();
-            return;
-        }
-
         EnemyAI enemy = collision.GetComponent<EnemyAI>();
         if(enemy != null)
         {
@@ -211,7 +246,7 @@ public class CharacterMovement : MonoBehaviour
                 AudioManager.instance.SwitchMusic("Theme1", "MenuBGM");
             }
         }
-        HealthSystem.instance.HealthDisplay();
+        canvasController.HealthDisplay(currentHealth);
     }
     public void HealPlayer() 
     {
@@ -220,7 +255,7 @@ public class CharacterMovement : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
-        HealthSystem.instance.HealthDisplay();
+        canvasController.HealthDisplay(currentHealth);
     }
 
 }

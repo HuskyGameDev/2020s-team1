@@ -7,7 +7,6 @@ public class Heart : MonoBehaviour
 {
     public string itemName = "Health";
     public Sprite icon;
-    public int healthToRestore;
     public bool showInInventory = true;
     [HideInInspector]
     public UI_InventoryController inventoryController;
@@ -22,11 +21,11 @@ public class Heart : MonoBehaviour
         {
             if (inventoryController.isOccupied[index] != true) 
             {
-                inventoryController.InventorySlot[index].GetComponent<InventorySlot>().AddItem(icon,index);
+                inventoryController.InventorySlot[index].GetComponent<InventorySlot>().Add(icon,index, itemName);
                 inventoryController.isOccupied[index] = true;
+                Destroy(gameObject);
                 break;
             }
         }
-        Destroy(gameObject);
     }
 }
