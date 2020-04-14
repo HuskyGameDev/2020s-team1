@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class CharacterMovement : MonoBehaviour
 {
+    public SpriteRenderer spriteRenderer;
     public Sprite moveUpSprite;
     public Sprite moveDownSprite;
     public Sprite moveLeftSprite;
@@ -132,48 +133,19 @@ public class CharacterMovement : MonoBehaviour
 
         if(hInput > 0)
         {
-            if(vInput > 0)
-            {
-                
-                characterTrnsform.eulerAngles = new Vector3(0, 0, 135);
-            }
-            else if(vInput < 0)
-            {
-                
-                characterTrnsform.eulerAngles = new Vector3(0, 0, 45);
-            }
-            else
-            {
-                characterTrnsform.eulerAngles = new Vector3(0, 0, 90);
-            }
-
-            
+            spriteRenderer.sprite = moveRightSprite;
         }
         else if(hInput < 0)
         {
-            if (vInput > 0)
-            {
-                characterTrnsform.eulerAngles = new Vector3(0, 0, -135);
-            }
-            else if (vInput < 0)
-            {
-                characterTrnsform.eulerAngles = new Vector3(0, 0, -45);
-            }
-            else
-            {
-                characterTrnsform.eulerAngles = new Vector3(0, 0, -90);
-            }
+            spriteRenderer.sprite = moveLeftSprite;
         }
-        else
+        else if(vInput > 0)
         {
-            if (vInput < 0)
-            {
-                characterTrnsform.eulerAngles = new Vector3(0, 0, 0);
-            }
-            else if (vInput > 0)
-            {
-                characterTrnsform.eulerAngles = new Vector3(0, 0, 180);
-            }
+            spriteRenderer.sprite = moveUpSprite;
+        }
+        else if(vInput < 0)
+        {
+            spriteRenderer.sprite = moveDownSprite;
         }
 
     }
