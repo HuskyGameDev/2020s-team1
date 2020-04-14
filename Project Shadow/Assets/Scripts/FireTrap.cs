@@ -13,6 +13,7 @@ public class FireTrap : MonoBehaviour
     public static bool canMove;
     public Sprite spriteImage;
     public ParticleSystem friePart;
+    public bool canDama = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,12 +65,14 @@ public class FireTrap : MonoBehaviour
                 //shows the spark
                 Hide();
                 friePart.GetComponent<ParticleSystem>().Emit(1);
+                canDama = true;
             }
             else if (second > 5)
             {
                 //shows the fire 
                 second = 0;
                 canMove = false;
+                canDama = false;
                 Hide();
             }
 
@@ -80,5 +83,9 @@ public class FireTrap : MonoBehaviour
     {
         //the trap is activated
         canMove = true;
+    }
+    public bool returnMove()
+    {
+        return canDama;
     }
 }

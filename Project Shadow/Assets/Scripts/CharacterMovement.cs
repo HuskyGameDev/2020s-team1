@@ -24,6 +24,8 @@ public class CharacterMovement : MonoBehaviour
     private float damageTime = 1.5f;
     private float canDamage = -1f;
     public ParticleSystem particle;
+    public bool flameDama = false;
+    public int flameCount = 0;
 
     CanvasController canvasController;
 
@@ -201,9 +203,33 @@ public class CharacterMovement : MonoBehaviour
             }
             
         }
+
+        if (flameDama == true )
+        {
+            flameCount++;
+        }
+
+        if (flameCount >= 20)
+        {
+            damagePlayer();
+            flameCount = 0;
+        }
         
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        FireTrap flames = collision.GetComponent<FireTrap>();
+        bool temp = flames.returnMove();
+        if (flames != null && temp == true)
+        {
+            flameDama = true;
+        }
+        else
+        {
+            flameDama = false;
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Heart heart = collision.GetComponent<Heart>();
