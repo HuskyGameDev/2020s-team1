@@ -5842,7 +5842,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &521080869
 Transform:
   m_ObjectHideFlags: 0
@@ -6779,7 +6779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &887518661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7054,6 +7054,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09db1dec9cba2264485f9897780063df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveUpSprite: {fileID: 0}
+  moveDownSprite: {fileID: 0}
+  moveLeftSprite: {fileID: 0}
+  moveRightSprite: {fileID: 0}
   keyCounter: 0
   moveSpeed: 2
   runSpeed: 4
@@ -7064,6 +7068,8 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 6
   particle: {fileID: 1506697318}
+  flameDama: 0
+  flameCount: 0
   inventorySlot1: {fileID: 70089500}
   inventorySlot2: {fileID: 395682243}
   inventorySlot3: {fileID: 32480511}
@@ -7112,7 +7118,7 @@ SpriteRenderer:
   m_SortingLayerID: -745025907
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: de442242a1cce7d4cad4cc49a01030d5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 58fb58202e2186c458a93158767f030e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7130,15 +7136,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1078978634}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.70710677}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 24.26001, y: 5.410034, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 875473920}
   - {fileID: 1506697315}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1078978638
 Rigidbody2D:
   serializedVersion: 4
@@ -7193,7 +7199,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.21, y: 0.25}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -117133,6 +117139,7 @@ MonoBehaviour:
   SpikeTrap1A: {fileID: 5568292434180234609}
   spriteImage: {fileID: 0}
   friePart: {fileID: 413664981}
+  canDama: 0
 --- !u!50 &5568292434180234611 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 3832047604384366238, guid: a432f99b5479564448ea8e58e240e3c8,

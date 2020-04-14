@@ -7,6 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class CharacterMovement : MonoBehaviour
 {
+    public Sprite moveUpSprite;
+    public Sprite moveDownSprite;
+    public Sprite moveLeftSprite;
+    public Sprite moveRightSprite;
     public int keyCounter;
     public float moveSpeed = 5;
     public float runSpeed = 7;
