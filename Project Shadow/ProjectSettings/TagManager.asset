@@ -10,6 +10,7 @@ TagManager:
   - FuelType1
   - Inventory
   - Canvas
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Sound
   - 
   - 
   - 
