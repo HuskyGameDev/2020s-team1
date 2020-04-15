@@ -8,6 +8,11 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
+    public SpriteRenderer spriteRenderer;
+    public Sprite up;
+    public Sprite down;
+    public Sprite left;
+    public Sprite right;
 
     public GameObject player;
     public GameObject destination;
@@ -69,9 +74,18 @@ public class EnemyAI : MonoBehaviour
 
         //var relativePos = target.transform.position - transform.position;
         var relativePos = oldPositon - transform.position;
-        var angle = Mathf.Atan2(relativePos.y, relativePos.x) * Mathf.Rad2Deg + 270;
-        var rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = rotation;
+        if(relativePos.x > 0) {
+            spriteRenderer.sprite = right;
+        } 
+        if(relativePos.x < 0) {
+            spriteRenderer.sprite = left;
+        }
+        if(relativePos.y > 0) {
+            spriteRenderer.sprite = up;
+        }
+        if(relativePos.y < 0) {
+            spriteRenderer.sprite = down;
+        }
 
         if (Vector3.Distance(transform.position, destination.transform.position) < 2.5 && !destination.Equals(player))
         {
