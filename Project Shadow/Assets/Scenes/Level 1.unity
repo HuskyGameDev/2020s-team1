@@ -7054,10 +7054,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09db1dec9cba2264485f9897780063df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveUpSprite: {fileID: 0}
-  moveDownSprite: {fileID: 0}
-  moveLeftSprite: {fileID: 0}
-  moveRightSprite: {fileID: 0}
+  spriteRenderer: {fileID: 1078978636}
+  moveUpSprite: {fileID: 21300000, guid: 10a2ac0aa8873604cb66a13f3bbff93e, type: 3}
+  moveDownSprite: {fileID: 21300000, guid: 58fb58202e2186c458a93158767f030e, type: 3}
+  moveLeftSprite: {fileID: 21300000, guid: c042824e93a2e1f41ac29eb95d8a8b0c, type: 3}
+  moveRightSprite: {fileID: 21300000, guid: 4e171c63efac4824a8d2939be2798d58, type: 3}
   keyCounter: 0
   moveSpeed: 2
   runSpeed: 4
@@ -7179,9 +7180,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01056796, y: 0.0794081}
+  m_Offset: {x: 0.005825281, y: -0.00012362003}
   serializedVersion: 2
-  m_Radius: 0.15328926
+  m_Radius: 0.10414767
 --- !u!61 &1078978640
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7195,7 +7196,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.22494099, y: -0.122975454}
+  m_Offset: {x: 0.0068895817, y: -0.009771645}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -7206,7 +7207,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16715813, y: 0.21410942}
+  m_Size: {x: 0.1725812, y: 0.22631085}
   m_EdgeRadius: 0
 --- !u!70 &1078978641
 CapsuleCollider2D:
@@ -7221,8 +7222,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.010312736, y: 0.07711798}
-  m_Size: {x: 0.6760403, y: 0.26155853}
+  m_Offset: {x: 0.0012114249, y: 0.042546514}
+  m_Size: {x: 0.20017967, y: 0.1327652}
   m_Direction: 1
 --- !u!1 &1088467869
 GameObject:
@@ -116484,6 +116485,35 @@ PrefabInstance:
       propertyPath: destination
       value: 
       objectReference: {fileID: 2037249801}
+    - target: {fileID: 1806777448842214249, guid: 77b186c0598ce874595e21b139b3154c,
+        type: 3}
+      propertyPath: up
+      value: 
+      objectReference: {fileID: 21300000, guid: 8027be55cd1cfac4ea05f0fb86a6b480,
+        type: 3}
+    - target: {fileID: 1806777448842214249, guid: 77b186c0598ce874595e21b139b3154c,
+        type: 3}
+      propertyPath: down
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ccb313d622d8354aa282c1ccacda919,
+        type: 3}
+    - target: {fileID: 1806777448842214249, guid: 77b186c0598ce874595e21b139b3154c,
+        type: 3}
+      propertyPath: left
+      value: 
+      objectReference: {fileID: 21300000, guid: f2fe560f9b2ef2d4db003307c7e94df9,
+        type: 3}
+    - target: {fileID: 1806777448842214249, guid: 77b186c0598ce874595e21b139b3154c,
+        type: 3}
+      propertyPath: right
+      value: 
+      objectReference: {fileID: 21300000, guid: 493f9273f02556a42a6e626fff49b4e8,
+        type: 3}
+    - target: {fileID: 1806777448842214249, guid: 77b186c0598ce874595e21b139b3154c,
+        type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1806777447587350344}
     - target: {fileID: 1806777448842214251, guid: 77b186c0598ce874595e21b139b3154c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -116558,6 +116588,12 @@ CapsuleCollider2D:
   m_Offset: {x: -0.014393476, y: -0.012953902}
   m_Size: {x: 0.66031516, y: 0.24290292}
   m_Direction: 1
+--- !u!212 &1806777447587350344 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1806777448842214251, guid: 77b186c0598ce874595e21b139b3154c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1806777447587350338}
+  m_PrefabAsset: {fileID: 0}
 --- !u!50 &1806777447587350345
 Rigidbody2D:
   serializedVersion: 4
