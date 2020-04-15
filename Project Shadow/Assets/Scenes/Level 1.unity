@@ -7071,6 +7071,7 @@ MonoBehaviour:
   particle: {fileID: 1506697318}
   flameDama: 0
   flameCount: 0
+  tempTest: 0
   inventorySlot1: {fileID: 70089500}
   inventorySlot2: {fileID: 395682243}
   inventorySlot3: {fileID: 32480511}
@@ -116821,7 +116822,7 @@ PrefabInstance:
     - target: {fileID: 4761696215935528618, guid: a432f99b5479564448ea8e58e240e3c8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 33.771935
+      value: 33.42
       objectReference: {fileID: 0}
     - target: {fileID: 4761696215935528618, guid: a432f99b5479564448ea8e58e240e3c8,
         type: 3}
@@ -116876,12 +116877,12 @@ PrefabInstance:
     - target: {fileID: 4761696215935528618, guid: a432f99b5479564448ea8e58e240e3c8,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3844519
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4761696215935528618, guid: a432f99b5479564448ea8e58e240e3c8,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.26914996
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 301488543365395138, guid: a432f99b5479564448ea8e58e240e3c8,
         type: 3}
@@ -116997,12 +116998,12 @@ PrefabInstance:
     - target: {fileID: 3180164929222764701, guid: a432f99b5479564448ea8e58e240e3c8,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[9].x
-      value: 3.7056997
+      value: 4.6755886
       objectReference: {fileID: 0}
     - target: {fileID: 3180164929222764701, guid: a432f99b5479564448ea8e58e240e3c8,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[9].y
-      value: -0.01947565
+      value: 0.59739685
       objectReference: {fileID: 0}
     - target: {fileID: 3180164929222764701, guid: a432f99b5479564448ea8e58e240e3c8,
         type: 3}
@@ -117087,12 +117088,12 @@ PrefabInstance:
     - target: {fileID: 3180164929222764701, guid: a432f99b5479564448ea8e58e240e3c8,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[17].x
-      value: 3.3837466
+      value: 4.662237
       objectReference: {fileID: 0}
     - target: {fileID: 3180164929222764701, guid: a432f99b5479564448ea8e58e240e3c8,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[17].y
-      value: 1.0762577
+      value: 0.67969704
       objectReference: {fileID: 0}
     - target: {fileID: 3180164929222764701, guid: a432f99b5479564448ea8e58e240e3c8,
         type: 3}
@@ -117144,6 +117145,16 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[1].Array.data[9].y
       value: 1.3797859
       objectReference: {fileID: 0}
+    - target: {fileID: 3180164929222764701, guid: a432f99b5479564448ea8e58e240e3c8,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: 4.741354
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180164929222764701, guid: a432f99b5479564448ea8e58e240e3c8,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
+      value: 0.69831085
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3832047604384366234, guid: a432f99b5479564448ea8e58e240e3c8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a432f99b5479564448ea8e58e240e3c8, type: 3}
@@ -117173,7 +117184,7 @@ MonoBehaviour:
   millisecond: 0
   time: 0
   SpikeTrap1A: {fileID: 5568292434180234609}
-  spriteImage: {fileID: 0}
+  spriteImage: {fileID: 21300000, guid: e72da23a9305c2942aa083b5ed705b73, type: 3}
   friePart: {fileID: 413664981}
   canDama: 0
 --- !u!50 &5568292434180234611 stripped
