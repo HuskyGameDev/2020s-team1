@@ -664,9 +664,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397478211}
-  m_LocalRotation: {x: -0, y: -0, z: -0.99999964, w: -0.0009008347}
-  m_LocalPosition: {x: -0.00013392643, y: -0.0023214319, z: 0.008928571}
-  m_LocalScale: {x: 0.008928577, y: 0.008928577, z: 0.008928571}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 887518663}
   m_RootOrder: 0
@@ -6195,7 +6195,7 @@ GameObject:
   - component: {fileID: 703825832}
   m_Layer: 8
   m_Name: CharacterSound
-  m_TagString: Untagged
+  m_TagString: SoundField_Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6928,7 +6928,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887518660}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.015, y: 0.26, z: -1}
+  m_LocalPosition: {x: 0.1772, y: 0.1311, z: 0}
   m_LocalScale: {x: 112, y: 112, z: 112}
   m_Children:
   - {fileID: 397478213}
@@ -7015,12 +7015,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.18}
   serializedVersion: 2
-  m_Radius: 0.75
+  m_Radius: 0.78
 --- !u!1001 &1067608349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7306,7 +7306,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.005825281, y: -0.00012362003}
+  m_Offset: {x: 0.005825281, y: 0.03}
   serializedVersion: 2
   m_Radius: 0.10414767
 --- !u!61 &1078978640
@@ -7316,7 +7316,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1078978634}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -7348,9 +7348,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0012114249, y: 0.042546514}
-  m_Size: {x: 0.20017967, y: 0.1327652}
-  m_Direction: 1
+  m_Offset: {x: 0.0012114249, y: -0.01}
+  m_Size: {x: 0.17, y: 0.24}
+  m_Direction: 0
 --- !u!1 &1088467869
 GameObject:
   m_ObjectHideFlags: 0
@@ -7833,9 +7833,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142158764}
-  m_LocalRotation: {x: -0, y: -0, z: -0.97973645, w: -0.2002911}
-  m_LocalPosition: {x: 0.00066964247, y: 0.0011607221, z: 0.008928571}
-  m_LocalScale: {x: 0.008928574, y: 0.008928574, z: 0.008928571}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.06}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 887518663}
   m_RootOrder: 1
@@ -7863,7 +7863,7 @@ MonoBehaviour:
   m_UseNormalMap: 0
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 1
-  m_PointLightInnerAngle: 273.68
+  m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
   m_PointLightOuterRadius: 5.03
@@ -116551,7 +116551,7 @@ PrefabInstance:
     - target: {fileID: 8043939592216722631, guid: 77b186c0598ce874595e21b139b3154c,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1806777448842214248, guid: 77b186c0598ce874595e21b139b3154c,
         type: 3}
@@ -116736,12 +116736,12 @@ PrefabInstance:
     - target: {fileID: 1806777448842214254, guid: 77b186c0598ce874595e21b139b3154c,
         type: 3}
       propertyPath: m_Offset.y
-      value: 0.061312295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1806777448842214254, guid: 77b186c0598ce874595e21b139b3154c,
         type: 3}
       propertyPath: m_Radius
-      value: 0.24277683
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 1806777448842214254, guid: 77b186c0598ce874595e21b139b3154c,
         type: 3}
@@ -116769,7 +116769,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1806777447587350339}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1

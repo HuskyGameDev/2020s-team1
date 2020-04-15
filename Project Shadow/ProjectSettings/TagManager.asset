@@ -11,6 +11,7 @@ TagManager:
   - Inventory
   - Canvas
   - Wall
+  - SoundField_Player
   layers:
   - Default
   - TransparentFX
