@@ -161,7 +161,11 @@ public class EnemyAI : MonoBehaviour
     }
 
     public void CheckSound1() {
-        
+        if(Ears.GetComponent<SoundDetection>().soundDetected && Vector3.Distance(player.transform.position, transform.position) < 2) {
+            stateCheckSound1 = false;
+            stateChase = true;
+            return;
+        }
         if(!wallCollider.GetComponent<WallCollider>().hitWall) {
             Debug.Log("Going Towards Wall");
             transform.position = Vector3.MoveTowards(transform.position, lastHeardLocation, 0.07f);
@@ -175,6 +179,11 @@ public class EnemyAI : MonoBehaviour
     }
 
     public void CheckSound2() {
+        if(Ears.GetComponent<SoundDetection>().soundDetected) {
+            stateCheckSound2 = false;
+            stateChase = true;
+            return;
+        }
         if(Vector3.Distance(transform.position, lastHeardLocation) < 1) {
             stateListen = true;
             stateCheckSound2 = false;
@@ -186,8 +195,19 @@ public class EnemyAI : MonoBehaviour
     }
 
     public void Chase() {
-        /* Chase isn't implemented as player currenlty doesn't have any way to defend itself */
-        destination = player.transform.position;
+        Debug.Log("CHASING PLAYER");
+        if(Ears.GetComponent<SoundDetection>().soundDetected) {
+            lastHeardLocation = player.transform.position;
+            destination = player.transform.position;
+        } else {
+            destination = lastHeardLocation;
+        }
+        if(Vector3.Distance(lastHeardLocation, transform.position) < 1) {
+            stateChase = false;
+            stateListen = true;
+            return;
+        }
+
         GoTo();
     }
 
