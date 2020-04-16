@@ -48,6 +48,8 @@ public class EnemyAI : MonoBehaviour
     public int attack1Damage = 1;
     public float timeBetweenAttacks;
 
+    private int upDateCount = 0;    // update count for updating oldPosition
+
     //public float acceleration = 2f;
     //public float deceleration = 60f;
     //public float closeEnoughMeters = 4f;
@@ -100,6 +102,57 @@ public class EnemyAI : MonoBehaviour
             spriteRenderer.sprite = down;
         }
 
+        /*
+         * Zong's implementation of switching sprite
+         */
+        if(relativePos.x>0)//moving right
+        {
+            if (relativePos.y > 0) // moving up
+            {
+                if (relativePos.x > relativePos.y) // more x than y
+                {
+                    spriteRenderer.sprite = left;
+                }
+                else
+                    spriteRenderer.sprite = up;
+            }
+            else // moving down or not
+            {
+                if (relativePos.x > (0 - relativePos.y))   // more x than y
+                {
+                    spriteRenderer.sprite = left;
+                }
+                else
+                    spriteRenderer.sprite = down;   // more y than x
+            }
+        }
+        else // moving left
+        {
+            if(relativePos.y>0) // left & up
+            {
+                if((0-relativePos.x)>relativePos.y) // more left than up
+                {
+                    spriteRenderer.sprite = right;
+                }
+                else // more up than left
+                {
+                    spriteRenderer.sprite = up;
+                }
+            }
+            else // moving down or not
+            {
+                if(relativePos.x<relativePos.y) // more left than down
+                {
+                    spriteRenderer.sprite = right;
+                }
+                else
+                {
+                    spriteRenderer.sprite = down;
+                }
+            }
+        }
+
+
         if(stateWander) {
             Debug.Log("Wandering!!");
             Wander();
@@ -117,7 +170,10 @@ public class EnemyAI : MonoBehaviour
             Chase();
         }
 
-        oldPositon = transform.position;
+        if (oldPos()) //oldPosition update per 3 update
+        {
+            oldPositon = transform.position;
+        }
     }
 
     public void Wander()
@@ -227,5 +283,17 @@ public class EnemyAI : MonoBehaviour
             Debug.DrawLine(corners[i], corners[i + 1], Color.blue);
         }
         Debug.DrawLine(corners[0], corners[1], Color.red);
+    }
+
+    private bool oldPos()
+    {
+        if (upDateCount > 2)
+        {
+            upDateCount = 0;
+        }
+        else
+            upDateCount++;
+
+        return upDateCount == 0;
     }
 }
