@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Fuel : MonoBehaviour
 {
+    private float pickupFuelRate = .00000000000000001f;
+    private static float nextPickupFuelRate = 0f;
+
     public Sprite icon;
     public string itemName = "Oil";
     CanvasController canvasController;
@@ -20,16 +23,20 @@ public class Fuel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            for (int index = 0; index < inventoryController.InventorySlot.Length; index++)
+            if (Time.time > nextPickupFuelRate)
             {
-                if (inventoryController.isOccupied[index] != true)
+                nextPickupFuelRate = Time.time + pickupFuelRate;
+                for (int index = 0; index < inventoryController.InventorySlot.Length; index++)
                 {
-                    inventoryController.InventorySlot[index].GetComponent<InventorySlot>().Add(icon, index, itemName);
-                    inventoryController.isOccupied[index] = true;
-                    AudioManager.instance.Play("Oil");;
-                    Destroy(gameObject);
-                    canvasController.fuelCount++;
-                    break;
+                    if (inventoryController.isOccupied[index] != true)
+                    {
+                        inventoryController.InventorySlot[index].GetComponent<InventorySlot>().Add(icon, index, itemName);
+                        inventoryController.isOccupied[index] = true;
+                        AudioManager.instance.Play("Oil"); ;
+                        Destroy(gameObject);
+                        canvasController.fuelCount++;
+                        break;
+                    }
                 }
             }
         }
