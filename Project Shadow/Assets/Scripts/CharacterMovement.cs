@@ -26,12 +26,16 @@ public class CharacterMovement : MonoBehaviour
 
     public static CharacterMovement instance;
     public int currentHealth, maxHealth;
-    private float damageTime = 1.5f;
-    private float canDamage = -1f;
+
+    private float damageTime = 2f;
+    private static float canDamage = 0f;
+
     public ParticleSystem particle;
     public bool flameDama = false;
     public int flameCount = 0;
     public int tempTest = 0;
+
+    private SpriteRenderer sprite;
 
     CanvasController canvasController;
 
@@ -58,6 +62,7 @@ public class CharacterMovement : MonoBehaviour
     //Start is called before the first frame update
     void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
         keyCounter = 0;
         canvasController = GameObject.FindGameObjectWithTag("Canvas").GetComponent<CanvasController>();
         currentHealth = maxHealth;
@@ -66,6 +71,18 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.time >= canDamage)
+        {
+            Color temp = sprite.color;
+            temp.a = 1f;
+            sprite.color = temp;
+        }
+        if (Time.time < canDamage) 
+        {
+            Color temp = sprite.color;
+            temp.a = 0.4f;
+            sprite.color = temp;
+        }
         if (Input.GetKeyDown(KeyCode.Alpha1)) 
         {
             inventorySlot1.GetComponent<InventorySlot>().Use(0);
@@ -207,11 +224,6 @@ public class CharacterMovement : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Heart heart = collision.GetComponent<Heart>();
-        if (heart != null) 
-        {
-            instance.HealPlayer();
-        }
         SpikeTrapAS sp = collision.GetComponent<SpikeTrapAS>();
         if (sp != null)
         {

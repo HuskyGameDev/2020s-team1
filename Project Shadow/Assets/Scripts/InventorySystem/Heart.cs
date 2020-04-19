@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Heart : MonoBehaviour
 {
+    private float pickupRate = .0000000000001f;
+    private static float nextPickup = 0f;
+
     public string itemName = "Health";
     public Sprite icon;
     public bool showInInventory = true;
@@ -17,14 +20,18 @@ public class Heart : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        for (int index = 0; index < inventoryController.InventorySlot.Length; index++) 
+        if (Time.time > nextPickup) 
         {
-            if (inventoryController.isOccupied[index] != true) 
+            nextPickup = Time.time + pickupRate;
+            for (int index = 0; index < inventoryController.InventorySlot.Length; index++)
             {
-                inventoryController.InventorySlot[index].GetComponent<InventorySlot>().Add(icon,index, itemName);
-                inventoryController.isOccupied[index] = true;
-                Destroy(gameObject);
-                break;
+                if (inventoryController.isOccupied[index] != true)
+                {
+                    inventoryController.InventorySlot[index].GetComponent<InventorySlot>().Add(icon, index, itemName);
+                    inventoryController.isOccupied[index] = true;
+                    Destroy(gameObject);
+                    break;
+                }
             }
         }
     }
