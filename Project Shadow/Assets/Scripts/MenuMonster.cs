@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 
 
-public class EnemyAI : MonoBehaviour
+public class MenuMosnter : MonoBehaviour
 {
     
     public SpriteRenderer spriteRenderer;
@@ -14,18 +14,6 @@ public class EnemyAI : MonoBehaviour
     public Sprite down;
     public Sprite left;
     public Sprite right;
-
-    public bool stateWander = true;
-    public bool stateChase = false;
-    public bool stateListen = false;
-    public bool waiting = false;
-    public bool stateCheckSound1 = false;
-    public bool stateCheckSound2 = false;
-    public Vector3 lastHeardLocation;
-
-    public GameObject wallCollider;
-    public GameObject Ears;
-    public GameObject player;
     public Vector3 destination;
     Vector3 pos;
     Vector3 oldPositon;
@@ -38,11 +26,6 @@ public class EnemyAI : MonoBehaviour
     public GameObject Room5;
 
     ArrayList rooms = new ArrayList();
-
-    public float speed = 3f;
-    public float attack1Range = 1f;
-    public int attack1Damage = 1;
-    public float timeBetweenAttacks;
 
     private int upDateCount = 0;    // update count for updating oldPosition
 
@@ -147,24 +130,7 @@ public class EnemyAI : MonoBehaviour
                 }
             }
         }
-
-
-        if(stateWander) {
-            Debug.Log("Wandering!!");
-            Wander();
-        } else if(stateListen) {
-            Debug.Log("Listening!!");
-            Listen();
-        } else if(stateCheckSound1) {
-            //Debug.Log("Checking Sound 1!!");
-            CheckSound1();
-        } else if(stateCheckSound2) {
-            Debug.Log("Checking Sound 2!!");
-            CheckSound2();
-        }// else if(stateChase) {
-        //     Debug.Log("Chasing!!");
-        //     Chase();
-        // }
+        Wander();
 
         if (oldPos()) //oldPosition update per 3 update
         {
@@ -174,91 +140,11 @@ public class EnemyAI : MonoBehaviour
 
     public void Wander()
     {
-        if(Ears.GetComponent<SoundDetection>().soundDetected) {
-            stateWander = false;
-            stateListen = true;
-            Debug.Log("State: Listen!!");
-            return;
-        }
+        
         int rand = Random.Range(1, 5);
         GameObject room = (GameObject)rooms[rand];
         destination = room.transform.position;
         //Debug.Log("enemy wandering");
-        GoTo();
-    }
-    public void Listen() {
-        
-        StartCoroutine(LateCall());
-        return;
-    }
-
-    IEnumerator LateCall() {
-        Debug.Log("Waitng patiently");
-        destination = transform.position;
-        GoTo();
-        yield return new WaitForSeconds(2f);
-
-        if(Ears.GetComponent<SoundDetection>().soundDetected) {
-            stateListen = false;
-            stateCheckSound1 = true;
-            //Debug.Log("State: SouncCheck 1!!");
-            lastHeardLocation = player.transform.position;
-        } else {
-            stateListen = false;
-            stateWander = true;
-            yield break;
-        }
-
-    }
-
-    public void CheckSound1() {
-        // if(Ears.GetComponent<SoundDetection>().soundDetected && Vector3.Distance(player.transform.position, transform.position) < 2) {
-        //     stateCheckSound1 = false;
-        //     stateChase = true;
-        //     return;
-        // }
-        if(!wallCollider.GetComponent<WallCollider>().hitWall) {
-            Debug.Log("Going Towards Wall");
-            transform.position = Vector3.MoveTowards(transform.position, lastHeardLocation, 0.07f);
-        } else {
-            stateCheckSound1 = false;
-            stateCheckSound2 = true;
-            Debug.Log("State: Sound Check 2!!");
-            return;
-        }
-        
-    }
-
-    public void CheckSound2() {
-        // if(Ears.GetComponent<SoundDetection>().soundDetected) {
-        //     stateCheckSound2 = false;
-        //     stateChase = true;
-        //     return;
-        // }
-        if(Vector3.Distance(transform.position, lastHeardLocation) < 1) {
-            stateListen = true;
-            stateCheckSound2 = false;
-            Debug.Log("State: Listen!!");
-            return;
-        }
-        destination = lastHeardLocation;
-        GoTo();
-    }
-
-    public void Chase() {
-        Debug.Log("CHASING PLAYER");
-        if(Ears.GetComponent<SoundDetection>().soundDetected) {
-            lastHeardLocation = player.transform.position;
-            destination = player.transform.position;
-        } else {
-            destination = lastHeardLocation;
-        }
-        if(Vector3.Distance(lastHeardLocation, transform.position) < 1) {
-            stateChase = false;
-            stateListen = true;
-            return;
-        }
-
         GoTo();
     }
 
