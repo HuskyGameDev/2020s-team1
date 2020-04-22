@@ -21,7 +21,10 @@ public class SoundDetection : MonoBehaviour
     {
         Debug.Log("Detected Sound!!");
         Debug.Log(col.gameObject.tag);
-        soundDetected = true;
+        if(col.gameObject.tag == "SoundField_Player") {
+            soundDetected = true;
+        }
+        
     }
     void OnTriggerExit2D(Collider2D col)
     {
