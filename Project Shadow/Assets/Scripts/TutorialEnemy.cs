@@ -16,6 +16,7 @@ public class TutorialEnemy : MonoBehaviour
     public Sprite right;
 
     public bool stateWander = true;
+    public bool arrived = true;
     public bool stateChase = false;
     public bool stateListen = false;
     public bool waiting = false;
@@ -71,7 +72,7 @@ public class TutorialEnemy : MonoBehaviour
         rooms.Add(Room5);
         rooms.Add(Room6);
         rooms.Add(Room7);
-
+        arrived = true;
         //Wander();
         
     }
@@ -152,6 +153,10 @@ public class TutorialEnemy : MonoBehaviour
             }
         }
 
+        if(Vector3.Distance(destination, transform.position) < 2) {
+            arrived = true;
+        }
+
 
         if(stateWander) {
             Debug.Log("Wandering!!");
@@ -184,11 +189,17 @@ public class TutorialEnemy : MonoBehaviour
             Debug.Log("State: Listen!!");
             return;
         }
-        int rand = Random.Range(1, 3);
-        GameObject room = (GameObject)rooms[rand];
-        destination = room.transform.position;
-        //Debug.Log("enemy wandering");
-        GoTo();
+        if(!arrived) { return; }
+        else {
+            int rand = Random.Range(0, 3);
+            Debug.Log(rand);
+            GameObject room = (GameObject)rooms[rand];
+            destination = room.transform.position;
+            Debug.Log("enemy wandering");
+            arrived = false;
+            GoTo();
+        }
+        
     }
     public void Listen() {
         
