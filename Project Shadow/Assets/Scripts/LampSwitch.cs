@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.LWRP;
+using UnityEngine.UI;
 
 public class LampSwitch : MonoBehaviour
 {
@@ -11,11 +12,13 @@ public class LampSwitch : MonoBehaviour
     private Flicker flicker2;
     public Light2D lamp2;
     private bool isLightOn = false;
+
     public float fuelConsumptionRate;
     public float currentFuelLevel;
-    public SpriteRenderer fuelBar;
+    public Image fuelBarImage;
     private float maxFuelLevel;
-    public float fuelBarSize;
+    private float fuelBar;
+
     public float brightness;
 
     public void Reset()
@@ -64,15 +67,11 @@ public class LampSwitch : MonoBehaviour
                 isLightOn = false;
             }
 
-            fuelBar.size = fuelBarTransform();
+            fuelBar = currentFuelLevel / maxFuelLevel;
+            fuelBarImage.fillAmount = fuelBar;
         }
     }
 
-    private Vector2 fuelBarTransform()
-    {
-        Vector2 size = new Vector2(fuelBarSize * (currentFuelLevel / maxFuelLevel), fuelBar.size.y);
-        return size;
-    }
     private void fuelDecrease()
     {
         currentFuelLevel -= fuelConsumptionRate * Time.deltaTime;
@@ -88,7 +87,8 @@ public class LampSwitch : MonoBehaviour
                 currentFuelLevel = maxFuelLevel;
             }
 
-            fuelBar.size = fuelBarTransform();
+            fuelBar = currentFuelLevel / maxFuelLevel;
+            fuelBarImage.fillAmount = fuelBar;
         }
     }
 
