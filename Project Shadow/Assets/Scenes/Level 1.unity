@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6398,6 +6398,12 @@ PrefabInstance:
       objectReference: {fileID: 248889948}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca6b288781a39fe43afe2c99df96fef8, type: 3}
+--- !u!212 &765892064 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2814841655779784500, guid: fcd7f48744e407b4ba4259ba5cf374be,
+    type: 3}
+  m_PrefabInstance: {fileID: 2814841655014679252}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &792753960
 GameObject:
   m_ObjectHideFlags: 0
@@ -81183,18 +81189,6 @@ PrefabInstance:
       objectReference: {fileID: 248889948}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca6b288781a39fe43afe2c99df96fef8, type: 3}
---- !u!114 &1705842495 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2127896417, guid: 37cd74d2eb3f2464cb0c3e76122171e0,
-    type: 3}
-  m_PrefabInstance: {fileID: 5778917052802029733}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1715169825
 GameObject:
   m_ObjectHideFlags: 0
@@ -112480,21 +112474,16 @@ PrefabInstance:
       propertyPath: inventorySlot10
       value: 
       objectReference: {fileID: 700623612}
+    - target: {fileID: 7813636722253763659, guid: 919c38bb7f678df4880e64f5adac0b2e,
+        type: 3}
+      propertyPath: fuelBar
+      value: 
+      objectReference: {fileID: 765892064}
     - target: {fileID: 7813636722241752463, guid: 919c38bb7f678df4880e64f5adac0b2e,
         type: 3}
       propertyPath: fuelBar
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7813636722253763659, guid: 919c38bb7f678df4880e64f5adac0b2e,
-        type: 3}
-      propertyPath: fuelBar
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7813636722253763659, guid: 919c38bb7f678df4880e64f5adac0b2e,
-        type: 3}
-      propertyPath: fuelBarImage
-      value: 
-      objectReference: {fileID: 1705842495}
+      objectReference: {fileID: 765892064}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 919c38bb7f678df4880e64f5adac0b2e, type: 3}
 --- !u!1001 &8499378993575737713
