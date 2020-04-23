@@ -11,6 +11,8 @@ public class LampSwitch : MonoBehaviour
     private Flicker flicker1;
     private Flicker flicker2;
     public Light2D lamp2;
+    public Light2D lamp3;
+    public Light2D lamp4;
     private bool isLightOn = false;
 
     public float fuelConsumptionRate;
@@ -100,12 +102,16 @@ public class LampSwitch : MonoBehaviour
             flicker1.stopFlickering = false;
             lamp2.intensity = brightness;
             flicker2.stopFlickering = false;
+            lamp3.intensity = brightness;
+            lamp4.intensity = brightness;
         } else
         {
             flicker1.stopFlickering = true;
             lamp1.intensity = 0;
             flicker2.stopFlickering = true;
             lamp2.intensity = 0;
+            lamp3.intensity = 0;
+            lamp4.intensity = 0;
         }
     }
 }
