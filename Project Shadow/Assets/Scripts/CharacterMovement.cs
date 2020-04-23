@@ -12,6 +12,7 @@ public class CharacterMovement : MonoBehaviour
     public Sprite moveDownSprite;
     public Sprite moveLeftSprite;
     public Sprite moveRightSprite;
+    [HideInInspector]
     public int keyCounter;
     public float moveSpeed = 5;
     public float runSpeed = 7;
