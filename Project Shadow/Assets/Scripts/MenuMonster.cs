@@ -51,7 +51,7 @@ public class MenuMosnter : MonoBehaviour
         rooms.Add(Room4);
         rooms.Add(Room5);
 
-        //Wander();
+        Wander();
         
     }
 
@@ -68,19 +68,7 @@ public class MenuMosnter : MonoBehaviour
 
         //var relativePos = target.transform.position - transform.position;
         var relativePos = oldPositon - transform.position;
-        if(relativePos.x > 0) {
-            spriteRenderer.sprite = right;
-        } 
-        if(relativePos.x < 0) {
-            spriteRenderer.sprite = left;
-        }
-        if(relativePos.y > 0) {
-            spriteRenderer.sprite = up;
-        }
-        if(relativePos.y < 0) {
-            spriteRenderer.sprite = down;
-        }
-
+        
         /*
          * Zong's implementation of switching sprite
          */
