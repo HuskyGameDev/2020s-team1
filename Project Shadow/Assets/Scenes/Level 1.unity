@@ -111254,6 +111254,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1078978634}
+    - target: {fileID: 2814841654927350443, guid: fcd7f48744e407b4ba4259ba5cf374be,
+        type: 3}
+      propertyPath: orthographic size
+      value: 4.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcd7f48744e407b4ba4259ba5cf374be, type: 3}
 --- !u!1001 &4351770721052841820
@@ -112394,6 +112399,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7813636722253763509, guid: 919c38bb7f678df4880e64f5adac0b2e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7813636721509355527, guid: 919c38bb7f678df4880e64f5adac0b2e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -112534,11 +112544,6 @@ PrefabInstance:
       propertyPath: lamp4
       value: 
       objectReference: {fileID: 1758015968}
-    - target: {fileID: 7813636722253763509, guid: 919c38bb7f678df4880e64f5adac0b2e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7813636722241752463, guid: 919c38bb7f678df4880e64f5adac0b2e,
         type: 3}
       propertyPath: fuelBar

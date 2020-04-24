@@ -571,9 +571,9 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.34
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 000000008dce97d3dd37db4d
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -1523,7 +1523,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1565,7 +1565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 762303a9c8254de469881c4c7e5674bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1544866521}
+  player: {fileID: 1404518133}
 --- !u!1 &668950977
 GameObject:
   m_ObjectHideFlags: 0
@@ -3321,12 +3321,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: dc1ad7c731fd25144b1b86aa9b77ede5, type: 2}
---- !u!1 &1544866521 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1014618815582206757, guid: 93c0a55e2b3f40249a385d550c04045a,
-    type: 3}
-  m_PrefabInstance: {fileID: 770685084}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1577853203
 GameObject:
   m_ObjectHideFlags: 0
