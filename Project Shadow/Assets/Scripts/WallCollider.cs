@@ -19,7 +19,6 @@ public class WallCollider : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Collision!AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!");
         Debug.Log(other.gameObject.tag);
         if(other.gameObject.CompareTag("Wall")) {
             hitWall = true;
